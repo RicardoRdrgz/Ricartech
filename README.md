@@ -6,7 +6,7 @@
 
 **Técnico informático freelance en Sitges y comarca del Garraf**
 
-[![Website](https://img.shields.io/badge/ricardordrgz.github.io/ricartech-2ea44f?logo=github)](https://ricardordrgz.github.io/ricartech)
+[![Website](https://img.shields.io/badge/ricardordrgz.github.io/Ricartech-2ea44f?logo=github)](https://ricardordrgz.github.io/ricartech)
 [![HTML5](https://img.shields.io/badge/HTML5-e34f26?logo=html5&logoColor=white)](#)
 [![CSS3](https://img.shields.io/badge/CSS3-1572b6?logo=css3&logoColor=white)](#)
 [![JavaScript](https://img.shields.io/badge/JavaScript-f7df1e?logo=javascript&logoColor=black)](#)
@@ -21,6 +21,8 @@
 Web corporativa estática para **Ricartech**, servicio de reparación y mantenimiento informático a domicilio en Sitges (Barcelona) y toda la comarca del Garraf.
 
 Optimizada para **SEO local**, **accesibilidad** y **rendimiento**. Sin dependencias de frameworks en producción: solo HTML, CSS y JavaScript vanilla.
+
+🌐 **Live demo:** [ricardordrgz.github.io/Ricartech](https://ricardordrgz.github.io/Ricartech/)
 
 ---
 
