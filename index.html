@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cristian Ricardo | Técnico Informático en Sitges y Garraf</title>
+    <meta name="description" content="Técnico informático freelance en Sitges, Barcelona. Reparaciones a domicilio, soporte remoto, instalación de sistemas, limpieza, migración HDD a SSD y gestión de datos. Presupuesto sin compromiso.">
+    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+<div id="pg" role="progressbar" aria-hidden="true"></div>
+
+<div class="toast-container" id="toast-container" aria-live="polite" aria-label="Notificaciones"></div>
+
+<nav class="mnav" id="mnav" aria-label="Menú de navegación móvil">
+    <a href="#servicios">Servicios</a>
+    <a href="#packs">Packs</a>
+    <a href="#proceso">Cómo funciona</a>
+    <a href="#faq">FAQ</a>
+    <a href="#registro">Registrar avería</a>
+    <a href="#contacto">Contacto</a>
+</nav>
+<div class="mnav-overlay" id="mnav-overlay" aria-hidden="true"></div>
+
+<header id="hdr">
+    <div class="nav-w">
+        <a href="#main-content" class="logo" aria-label="Ricartech — Ir al inicio">
+            <span class="logo-dot" aria-hidden="true"></span>Ricar <em>tech</em>
+        </a>
+        <nav aria-label="Menú de navegación principal">
+            <ul class="nav-ul">
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#packs">Packs</a></li>
+                <li><a href="#proceso">Cómo funciona</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#registro">Registrar avería</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+        <button class="hamburger" id="ham" aria-label="Abrir menú de navegación" aria-expanded="false"
+            aria-controls="mnav">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</header>
+
+<main id="main-content">
+
+    <section class="hero" aria-label="Presentación">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-orbs" aria-hidden="true"><div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div></div>
+        <div class="wrap hero-c">
+            <div class="hero-tag">Sitges · Vilanova i la Geltrú · Garraf</div>
+            <div class="avail-badge">Cargando...</div>
+            <h1>Tu técnico IT,<br><span class="grad">de confianza</span></h1>
+            <p class="hero-desc">Soluciones informáticas para particulares. Sin tecnicismos, sin esperas, con
+                garantía real.</p>
+            <div class="hero-type" aria-live="polite" aria-label="Especialización">
+                <span id="typed"></span><span class="cursor" aria-hidden="true"></span>
+                <noscript><span style="opacity:1">Técnico Informático Freelance</span></noscript>
+            </div>
+            <div class="hero-ctas">
+                <a href="#registro" class="btn btn-p">Registrar avería →</a>
+                <a href="#servicios" class="btn btn-g">Ver servicios</a>
+            </div>
+            <div class="hero-stats">
+                <div><span class="stat-num">5</span><span class="stat-label">Servicios clave</span></div>
+                <div><span class="stat-num">Sitges</span><span class="stat-label">Desplazamiento incluido</span>
+                </div>
+                <div><span class="stat-num">25 €/h</span><span class="stat-label">Soporte remoto</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" class="services">
+        <div class="wrap">
+            <header class="sec-hdr reveal">
+                <h2 class="sec-title">¿Qué puedo hacer<br>por ti?</h2>
+            </header>
+            <div class="svc-grid stagger">
+                <article class="svc">
+                    <div class="svc-ico"><img src="assets/img/soporte-remoto.png" alt="Soporte Remoto" width="48" height="48"></div>
+                    <h3>Soporte Remoto</h3>
+                    <ul>
+                        <li>Resolución de problemas software</li>
+                        <li>Configuración de impresoras / red</li>
+                        <li>Limpieza de malware básica</li>
+                        <li>Asesoramiento técnico</li>
+                    </ul>
+                    <span class="svc-price">25 €/h</span>
+                </article>
+                <article class="svc">
+                    <div class="svc-ico"><img src="assets/img/instalacion-sistema.png" alt="Instalación de Sistemas" width="48" height="48"></div>
+                    <h3>Instalación de Sistemas</h3>
+                    <ul>
+                        <li>Instalación limpia Windows / Linux</li>
+                        <li>Configuración dual boot</li>
+                        <li>Drivers y software básico</li>
+                        <li>Instalación antivirus</li>
+                    </ul>
+                    <span class="svc-price">50 €</span>
+                </article>
+                <article class="svc">
+                    <div class="svc-ico"><img src="assets/img/limpieza.png" alt="Mantenimiento Físico" width="48" height="48"></div>
+                    <h3>Mantenimiento Físico</h3>
+                    <ul>
+                        <li>Limpieza profunda de polvo</li>
+                        <li>Cambio pasta térmica (CPU/GPU)</li>
+                        <li>Revisión ventilación y cableado</li>
+                        <li>Válido para PC y consolas</li>
+                    </ul>
+                    <span class="svc-price">55 €</span>
+                </article>
+                <article class="svc">
+                    <div class="svc-ico"><img src="assets/img/migracion-discos.png" alt="Migración HDD a SSD" width="48" height="48"></div>
+                    <h3>Migración HDD → SSD</h3>
+                    <ul>
+                        <li>Clonación completa del sistema</li>
+                        <li>Optimización para SSD</li>
+                        <li>Ajuste de particiones</li>
+                        <li>Mejora de rendimiento notable</li>
+                    </ul>
+                    <span class="svc-price">70 €</span>
+                </article>
+                <article class="svc">
+                    <div class="svc-ico"><img src="assets/img/gestion-datos.png" alt="Gestión de Datos" width="48" height="48"></div>
+                    <h3>Gestión de Datos</h3>
+                    <ul>
+                        <li>Configuración backups automáticos</li>
+                        <li>Borrado seguro certificado</li>
+                        <li>Imagen del sistema completo</li>
+                        <li>Recuperación / migración de datos</li>
+                    </ul>
+                    <span class="svc-price">Desde 40 €</span>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="packs">
+        <div class="wrap">
+            <header class="sec-hdr reveal">
+                <h2 class="sec-title">Soluciones completas,<br>mejor precio.</h2>
+            </header>
+            <div class="packs-grid stagger">
+                <article class="pack feat">
+                    <span class="pack-badge b-hot">
+                        <svg class="badge-ico badge-ico--fill" viewBox="0 0 24 24" aria-hidden="true">
+                            <polygon
+                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                        </svg>
+                        Más popular
+                    </span>
+                    <p class="pack-cat">[ HOGAR ]</p>
+                    <h3>PC Como Nuevo</h3>
+                    <div class="pack-price">75 <span class="u">€ · 85 € con GPU</span></div>
+                    <ul class="pack-feats">
+                        <li>Limpieza física completa (polvo + pasta térmica)</li>
+                        <li>Optimización del arranque</li>
+                        <li>Actualización del S.O. y drivers</li>
+                        <li>Verificación antivirus</li>
+                    </ul>
+                    <a href="#registro" class="btn btn-p btn-full">Solicitar este pack</a>
+                </article>
+                <article class="pack">
+                    <span class="pack-badge b-sec">
+                        <svg class="badge-ico" viewBox="0 0 24 24" aria-hidden="true">
+                            <rect x="3" y="11" width="18" height="11" rx="2" />
+                            <path d="M7 11V7a5 5 0 0110 0v4" />
+                        </svg>
+                        Seguridad
+                    </span>
+                    <p class="pack-cat">[ HOGAR ]</p>
+                    <h3>PC Seguro en Casa</h3>
+                    <div class="pack-price">85 <span class="u">€</span></div>
+                    <ul class="pack-feats">
+                        <li>Eliminación de bloatware</li>
+                        <li>Copias automáticas configuradas</li>
+                        <li>Medio de rescate USB</li>
+                        <li>Optimización completa + antivirus</li>
+                    </ul>
+                    <a href="#registro" class="btn btn-g btn-full">Solicitar este pack</a>
+                </article>
+                <article class="pack">
+                    <span class="pack-badge b-flex">
+                        <svg class="badge-ico" viewBox="0 0 24 24" aria-hidden="true">
+                            <circle cx="12" cy="12" r="3" />
+                            <path
+                                d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z" />
+                        </svg>
+                        A medida
+                    </span>
+                    <p class="pack-cat">[ PERSONALIZADO ]</p>
+                    <h3>Servicio a Medida</h3>
+                    <div class="pack-price" style="font-size:1.6rem;line-height:1.3;padding-top:.25rem">Consultar
+                    </div>
+                    <ul class="pack-feats">
+                        <li>Análisis de necesidades</li>
+                        <li>Presupuesto personalizado</li>
+                        <li>Combinación de servicios</li>
+                        <li>Mantenimiento recurrente</li>
+                        <li>Soporte técnico continuado</li>
+                    </ul>
+                    <a href="#" class="btn btn-g btn-full obf-mailto" data-u="christianrodriguezarias" data-d="gmail.com">Enviar
+                        consulta</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ========== CÓMO FUNCIONA ========== -->
+    <section id="proceso" class="process">
+        <div class="wrap">
+            <header class="sec-hdr reveal">
+                <h2 class="sec-title">4 pasos y<br>tu equipo listo.</h2>
+            </header>
+            <div class="process-timeline stagger">
+                <div class="process-step">
+                    <div class="process-step-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:32px;height:32px;color:var(--indigo-light)"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-5-5 19.79 19.79 0 01-3.07-8.67A2 2 0 015.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.91 9.91a16 16 0 006.29 6.29l1.27-.52a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    </div>
+                    <div class="process-num">1</div>
+                    <h3 class="process-title">Contacta</h3>
+                    <p class="process-desc">Rellena el formulario o escríbeme directamente. Describe tu problema y te respondo en menos de 24h.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:32px;height:32px;color:var(--cyan)"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                    </div>
+                    <div class="process-num">2</div>
+                    <h3 class="process-title">Diagnóstico</h3>
+                    <p class="process-desc">Analizo tu equipo a domicilio o por remoto. Te doy un diagnóstico claro y un presupuesto sin compromiso.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:32px;height:32px;color:var(--amber)"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+                    </div>
+                    <div class="process-num">3</div>
+                    <h3 class="process-title">Reparación</h3>
+                    <p class="process-desc">Ejecuto la reparación con total transparencia. Si surge algo imprevisto, te aviso antes de actuar.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:32px;height:32px;color:var(--green)"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    </div>
+                    <div class="process-num">4</div>
+                    <h3 class="process-title">Entrega</h3>
+                    <p class="process-desc">Te devuelvo tu equipo funcionando. Te explico qué se ha hecho y te doy consejos para mantenerlo en buen estado.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ========== CALCULADORA DE PRESUPUESTO ========== -->
+    <section id="calculadora" class="calc-section">
+        <div class="wrap">
+            <header class="sec-hdr reveal">
+                <h2 class="sec-title">Calcula tu<br>presupuesto.</h2>
+            </header>
+            <div class="calc-wrap reveal">
+                <div class="calc-services" role="group" aria-label="Calculadora de precios">
+                    <label class="calc-opt">
+                        <input type="checkbox" value="soporte">
+                        <div class="calc-svc"><span>Soporte Remoto</span><span class="calc-price">25 €/h</span></div>
+                    </label>
+                    <label class="calc-opt">
+                        <input type="checkbox" value="instalacion">
+                        <div class="calc-svc"><span>Instalación de Sistemas</span><span class="calc-price">50 €</span></div>
+                    </label>
+                    <label class="calc-opt">
+                        <input type="checkbox" value="limpieza">
+                        <div class="calc-svc"><span>Mantenimiento Físico</span><span class="calc-price">55 €</span></div>
+                    </label>
+                    <label class="calc-opt">
+                        <input type="checkbox" value="migracion">
+                        <div class="calc-svc"><span>Migración HDD → SSD</span><span class="calc-price">70 €</span></div>
+                    </label>
+                    <label class="calc-opt">
+                        <input type="checkbox" value="datos">
+                        <div class="calc-svc"><span>Gestión de Datos</span><span class="calc-price">Desde 40 €</span></div>
+                    </label>
+                    <label class="calc-opt">
+                        <input type="checkbox" value="limpieza-consolas">
+                        <div class="calc-svc"><span>Limpieza de Consolas</span><span class="calc-price">45 €</span></div>
+                    </label>
+                    <label class="calc-opt">
+                        <input type="checkbox" value="reparacion-consolas">
+                        <div class="calc-svc"><span>Reparación de Consolas</span><span class="calc-price">Desde 50 €</span></div>
+                    </label>
+                </div>
+                <div class="calc-total-row">
+                    <span class="calc-total-label">Estimación total</span>
+                    <span class="calc-total-val" id="calc-total">— €</span>
+                </div>
+                <div class="calc-discount" id="calc-discount"></div>
+                <a href="#registro" class="btn btn-p btn-sm calc-cta">Registrar avería →</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section id="registro" class="form-section">
+        <div class="wrap">
+            <header class="sec-hdr reveal">
+                <h2 class="sec-title">Cuéntame qué<br>le pasa a tu equipo.</h2>
+            </header>
+
+            <div class="reveal">
+            <div class="step-bar" id="step-bar" role="list" aria-label="Progreso del formulario">
+                <div class="step-node active" role="listitem" aria-current="step">
+                    <div class="step-dot">1</div><span class="step-lbl">Cliente</span>
+                </div>
+                <div class="step-node" role="listitem">
+                    <div class="step-dot">2</div><span class="step-lbl">Dispositivo</span>
+                </div>
+                <div class="step-node" role="listitem">
+                    <div class="step-dot">3</div><span class="step-lbl">El Problema</span>
+                </div>
+                <div class="step-node" role="listitem">
+                    <div class="step-dot">4</div><span class="step-lbl">Logística</span>
+                </div>
+                <div class="step-node" role="listitem">
+                    <div class="step-dot">5</div><span class="step-lbl">Confirmar</span>
+                </div>
+            </div>
+
+            <div class="form-wrap reveal" id="form-wrap">
+
+                <div class="success-screen" id="success-screen" role="alert" aria-live="polite">
+                    <div class="tick-circle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            style="width:2.2rem;height:2.2rem;color:var(--green)">
+                            <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+                            <polyline points="22 4 12 14.01 9 11.01" />
+                        </svg></div>
+                    <h3>¡Avería registrada!</h3>
+                    <p>Tu solicitud ha sido recibida. Te contactaré antes de 24h para confirmar disponibilidad y
+                        acordar la visita.</p>
+                    <div class="ticket-num" id="ticket-display">TKT-—</div>
+                    <p style="font-size:.8rem;color:var(--text-dim);margin-top:.25rem">Guarda este número de ticket
+                        como referencia.</p>
+                    <div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem">
+                        <button class="btn btn-p btn-sm" id="resetFormBtn" type="button">Registrar otra avería</button>
+                        <a href="#contacto" class="btn btn-g btn-sm">Contacto directo</a>
+                    </div>
+                </div>
+
+                <!-- STEP 1 -->
+                <div class="form-step active" id="step-1" role="group" aria-labelledby="title-step-1">
+                    <h3 class="step-title" id="title-step-1">Tus datos de contacto</h3>
+                    <p class="step-sub">Para poder avisarte y coordinar la visita necesito tus datos básicos.</p>
+                    <div class="fields">
+                        <div class="fields-2">
+                            <div class="field" id="f-nombre">
+                                <label for="nombre">Nombre completo <span class="req"
+                                        aria-label="obligatorio">*</span></label>
+                                <input class="f-input" type="text" id="nombre" autocomplete="name"
+                                    placeholder="Ej. María García López" aria-required="true"
+                                    maxlength="100">
+                                <span class="err-msg" role="alert">Por favor, introduce tu nombre completo.</span>
+                            </div>
+                            <div class="field" id="f-telefono">
+                                <label for="telefono">Teléfono <span class="req"
+                                        aria-label="obligatorio">*</span></label>
+                                <input class="f-input" type="tel" id="telefono" placeholder="6XX XXX XXX"
+                                    autocomplete="tel" aria-required="true"
+                                    inputmode="tel" maxlength="15"
+                                    pattern="[0-9 ]+">
+                                <span class="err-msg" role="alert">Introduce un teléfono válido (9 dígitos).</span>
+                            </div>
+                        </div>
+                        <div class="field" id="f-email">
+                            <label for="email">Email <span class="req" aria-label="obligatorio">*</span></label>
+                            <input class="f-input" type="email" id="email" placeholder="tu@email.com"
+                                autocomplete="email" aria-required="true"
+                                maxlength="254">
+                            <span class="err-msg" role="alert">Introduce un email válido.</span>
+                        </div>
+                        <div class="fields-2">
+                            <div class="field" id="f-direccion">
+                                <label for="direccion">Dirección <span class="req"
+                                        aria-label="obligatorio">*</span></label>
+                                <input class="f-input" type="text" id="direccion" placeholder="Calle, número, piso"
+                                    autocomplete="street-address" aria-required="true"
+                                    maxlength="200">
+                                <span class="err-msg" role="alert">Introduce tu dirección.</span>
+                            </div>
+                            <div class="field" id="f-localidad">
+                                <label for="localidad">Localidad <span class="req"
+                                        aria-label="obligatorio">*</span></label>
+                                <input class="f-input" type="text" id="localidad" value="Sitges"
+                                    autocomplete="address-level2" aria-required="true"
+                                    maxlength="80">
+                                <span class="err-msg" role="alert">Introduce tu localidad.</span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="cp">Código postal</label>
+                            <input class="f-input" type="text" id="cp" placeholder="08870"
+                                autocomplete="postal-code" inputmode="numeric" maxlength="5"
+                                pattern="[0-9]{5}" style="max-width:160px">
+                            <span class="field-hint">Opcional — ayuda a calcular el desplazamiento</span>
+                        </div>
+                        <div class="field">
+                            <label for="cliente-habitual">¿Eres cliente habitual?</label>
+                            <select class="f-input" id="cliente-habitual" style="max-width:280px">
+                                <option value="no">No, es mi primera vez</option>
+                                <option value="si">Sí, ya hemos trabajado juntos</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 2 -->
+                <div class="form-step" id="step-2" role="group" aria-labelledby="title-step-2">
+                    <h3 class="step-title" id="title-step-2">El dispositivo</h3>
+                    <p class="step-sub">Indícame qué tipo de equipo tendremos que revisar.</p>
+                    <div class="fields">
+                        <div class="field" id="f-tipo">
+                            <label>Tipo de dispositivo <span class="req" aria-label="obligatorio">*</span></label>
+                            <div class="device-grid" role="radiogroup" aria-label="Tipo de dispositivo">
+                                <label class="device-opt">
+                                    <input type="radio" name="tipo" value="PC Sobremesa">
+                                    <div class="device-card">
+                                        <svg class="device-ico" viewBox="0 0 24 24" aria-hidden="true">
+                                            <rect x="2" y="3" width="20" height="14" rx="2" />
+                                            <path d="M8 21h8M12 17v4" />
+                                        </svg>
+                                        PC Sobremesa
+                                    </div>
+                                </label>
+                                <label class="device-opt">
+                                    <input type="radio" name="tipo" value="Portátil">
+                                    <div class="device-card">
+                                        <svg class="device-ico" viewBox="0 0 24 24" aria-hidden="true">
+                                            <path d="M20 16V7a2 2 0 00-2-2H6a2 2 0 00-2 2v9" />
+                                            <path d="M1 16h22" />
+                                        </svg>
+                                        Portátil
+                                    </div>
+                                </label>
+                                <label class="device-opt">
+                                    <input type="radio" name="tipo" value="Consola">
+                                    <div class="device-card">
+                                        <svg class="device-ico" viewBox="0 0 24 24" aria-hidden="true">
+                                            <line x1="6" y1="11" x2="10" y2="11" />
+                                            <line x1="8" y1="9" x2="8" y2="13" />
+                                            <line x1="15" y1="12" x2="15.01" y2="12" />
+                                            <line x1="18" y1="10" x2="18.01" y2="10" />
+                                            <path
+                                                d="M17.32 5H6.68a4 4 0 00-3.98 3.59l-.7 6.65A4 4 0 006 20h12a4 4 0 003.99-4.3l-.7-6.65A4 4 0 0017.32 5z" />
+                                        </svg>
+                                        Consola
+                                    </div>
+                                </label>
+                                <label class="device-opt">
+                                    <input type="radio" name="tipo" value="Tablet / Móvil">
+                                    <div class="device-card">
+                                        <svg class="device-ico" viewBox="0 0 24 24" aria-hidden="true">
+                                            <rect x="5" y="2" width="14" height="20" rx="2" />
+                                            <line x1="12" y1="18" x2="12.01" y2="18" />
+                                        </svg>
+                                        Tablet / Móvil
+                                    </div>
+                                </label>
+                                <label class="device-opt">
+                                    <input type="radio" name="tipo" value="Otro">
+                                    <div class="device-card">
+                                        <svg class="device-ico" viewBox="0 0 24 24" aria-hidden="true">
+                                            <path d="M12 22v-5" />
+                                            <path d="M9 7V2m6 5V2" />
+                                            <path d="M6 7h12v5a6 6 0 01-12 0V7z" />
+                                        </svg>
+                                        Otro
+                                    </div>
+                                </label>
+                            </div>
+                            <span class="err-msg" role="alert">Selecciona el tipo de dispositivo.</span>
+                        </div>
+                        <div class="fields-2">
+                            <div class="field" id="f-marca">
+                                <label for="marca">Marca <span class="req" aria-label="obligatorio">*</span></label>
+                                <input class="f-input" type="text" id="marca" placeholder="Ej. Sony, HP, Lenovo…"
+                                    aria-required="true" maxlength="60">
+                                <span class="err-msg" role="alert">Introduce la marca.</span>
+                            </div>
+                            <div class="field" id="f-modelo">
+                                <label for="modelo">Modelo <span class="req"
+                                        aria-label="obligatorio">*</span></label>
+                                <input class="f-input" type="text" id="modelo"
+                                    placeholder="Ej. PlayStation 5, Pavilion 15…" aria-required="true"
+                                    maxlength="80">
+                                <span class="err-msg" role="alert">Introduce el modelo.</span>
+                            </div>
+                        </div>
+                        <div class="fields-2">
+                            <div class="field">
+                                <label for="serie">Número de serie</label>
+                                <input class="f-input" type="text" id="serie" placeholder="Opcional"
+                                    maxlength="80">
+                            </div>
+                            <div class="field" id="f-so">
+                                <label for="so">Sistema operativo <span class="req"
+                                        aria-label="obligatorio">*</span></label>
+                                <select class="f-input" id="so" aria-required="true">
+                                    <option value="">Selecciona…</option>
+                                    <option>Windows 11</option>
+                                    <option>Windows 10</option>
+                                    <option>Windows 7 / 8 (legado)</option>
+                                    <option>Ubuntu / Linux Mint</option>
+                                    <option>macOS</option>
+                                    <option>N/A (consola / tablet)</option>
+                                    <option>Otro</option>
+                                </select>
+                                <span class="err-msg" role="alert">Selecciona el sistema operativo.</span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="anio">Año aproximado del equipo</label>
+                            <select class="f-input" id="anio" style="max-width:200px">
+                                <option value="">No lo sé</option>
+                                <option>2024</option><option>2023</option><option>2022</option>
+                                <option>2021</option><option>2020</option><option>2019</option>
+                                <option>2018</option><option>2017</option><option>2016</option>
+                                <option>2015</option><option>2014</option><option>2013</option>
+                                <option>Antes de 2013</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 3 -->
+                <div class="form-step" id="step-3" role="group" aria-labelledby="title-step-3">
+                    <h3 class="step-title" id="title-step-3">Cuéntame el problema</h3>
+                    <p class="step-sub">Cuanta más información me des, mejor podré preparar la visita.</p>
+                    <div class="fields">
+                        <div class="field" id="f-servicios">
+                            <label>Servicio(s) que necesitas <span class="req"
+                                    aria-label="obligatorio">*</span></label>
+                            <div class="svc-select-grid" role="group" aria-label="Servicios disponibles">
+                                <label class="svc-opt">
+                                    <input type="checkbox" name="servicios" value="Soporte Remoto (25€/h)">
+                                    <div class="svc-sel-card">
+                                        <svg class="svc-sel-ico" viewBox="0 0 24 24" aria-hidden="true">
+                                            <rect x="2" y="3" width="20" height="14" rx="2" />
+                                            <path d="M8 21h8M12 17v4" />
+                                        </svg>
+                                        <div class="svc-sel-info">
+                                            <div class="svc-sel-name">Soporte Remoto</div>
+                                            <div class="svc-sel-price">25 €/h</div>
+                                        </div>
+                                        <span class="svc-check" aria-hidden="true"><svg viewBox="0 0 24 24"
+                                                fill="none" stroke="currentColor" stroke-width="3"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                style="width:.7rem;height:.7rem">
+                                                <polyline points="20 6 9 17 4 12" />
+                                            </svg></span>
+                                    </div>
+                                </label>
+                                <label class="svc-opt">
+                                    <input type="checkbox" name="servicios" value="Instalación de Sistemas (50€)">
+                                    <div class="svc-sel-card">
+                                        <svg class="svc-sel-ico" viewBox="0 0 24 24" aria-hidden="true">
+                                            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                                            <polyline points="7 10 12 15 17 10" />
+                                            <line x1="12" y1="15" x2="12" y2="3" />
+                                        </svg>
+                                        <div class="svc-sel-info">
+                                            <div class="svc-sel-name">Instalación de Sistemas</div>
+                                            <div class="svc-sel-price">50 €</div>
+                                        </div>
+                                        <span class="svc-check" aria-hidden="true"><svg viewBox="0 0 24 24"
+                                                fill="none" stroke="currentColor" stroke-width="3"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                style="width:.7rem;height:.7rem">
+                                                <polyline points="20 6 9 17 4 12" />
+                                            </svg></span>
+                                    </div>
+                                </label>
+                                <label class="svc-opt">
+                                    <input type="checkbox" name="servicios" value="Mantenimiento Físico (55€)">
+                                    <div class="svc-sel-card">
+                                        <svg class="svc-sel-ico" viewBox="0 0 24 24" aria-hidden="true">
+                                            <path
+                                                d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" />
+                                        </svg>
+                                        <div class="svc-sel-info">
+                                            <div class="svc-sel-name">Mantenimiento Físico (PC/Consola)</div>
+                                            <div class="svc-sel-price">55 €</div>
+                                        </div>
+                                        <span class="svc-check" aria-hidden="true"><svg viewBox="0 0 24 24"
+                                                fill="none" stroke="currentColor" stroke-width="3"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                style="width:.7rem;height:.7rem">
+                                                <polyline points="20 6 9 17 4 12" />
+                                            </svg></span>
+                                    </div>
+                                </label>
+                                <label class="svc-opt">
+                                    <input type="checkbox" name="servicios" value="Migración HDD→SSD (70€)">
+                                    <div class="svc-sel-card">
+                                        <svg class="svc-sel-ico" viewBox="0 0 24 24" aria-hidden="true">
+                                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                                        </svg>
+                                        <div class="svc-sel-info">
+                                            <div class="svc-sel-name">Migración HDD → SSD</div>
+                                            <div class="svc-sel-price">70 €</div>
+                                        </div>
+                                        <span class="svc-check" aria-hidden="true"><svg viewBox="0 0 24 24"
+                                                fill="none" stroke="currentColor" stroke-width="3"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                style="width:.7rem;height:.7rem">
+                                                <polyline points="20 6 9 17 4 12" />
+                                            </svg></span>
+                                    </div>
+                                </label>
+                                <label class="svc-opt">
+                                    <input type="checkbox" name="servicios" value="Gestión de Datos (desde 40€)">
+                                    <div class="svc-sel-card">
+                                        <svg class="svc-sel-ico" viewBox="0 0 24 24" aria-hidden="true">
+                                            <rect x="3" y="11" width="18" height="11" rx="2" />
+                                            <path d="M7 11V7a5 5 0 0110 0v4" />
+                                        </svg>
+                                        <div class="svc-sel-info">
+                                            <div class="svc-sel-name">Gestión de Datos (Backup/Borrado)</div>
+                                            <div class="svc-sel-price">Desde 40 €</div>
+                                        </div>
+                                        <span class="svc-check" aria-hidden="true"><svg viewBox="0 0 24 24"
+                                                fill="none" stroke="currentColor" stroke-width="3"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                style="width:.7rem;height:.7rem">
+                                                <polyline points="20 6 9 17 4 12" />
+                                            </svg></span>
+                                    </div>
+                                </label>
+                            </div>
+                            <span class="err-msg" role="alert">Selecciona al menos un servicio.</span>
+                        </div>
+
+                        <div class="field">
+                            <label>Síntomas observados</label>
+                            <div class="symptom-grid" role="group" aria-label="Síntomas del dispositivo">
+                                <label class="sym-opt"><input type="checkbox" name="sintoma"
+                                        value="No enciende / No arranca">
+                                    <span class="sym-tag">
+                                        <svg class="sym-ico" viewBox="0 0 24 24" aria-hidden="true">
+                                            <path d="M18.36 6.64a9 9 0 11-12.73 0" />
+                                            <line x1="12" y1="2" x2="12" y2="12" />
+                                        </svg>
+                                        No enciende
+                                    </span></label>
+                                <label class="sym-opt"><input type="checkbox" name="sintoma"
+                                        value="Pantalla azul / Error crítico">
+                                    <span class="sym-tag">
+                                        <svg class="sym-ico" viewBox="0 0 24 24" aria-hidden="true">
+                                            <path
+                                                d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+                                            <line x1="12" y1="9" x2="12" y2="13" />
+                                            <line x1="12" y1="17" x2="12.01" y2="17" />
+                                        </svg>
+                                        Pantalla azul
+                                    </span></label>
+                                <label class="sym-opt"><input type="checkbox" name="sintoma"
+                                        value="Muy lento / Se congela">
+                                    <span class="sym-tag">
+                                        <svg class="sym-ico" viewBox="0 0 24 24" aria-hidden="true">
+                                            <circle cx="12" cy="12" r="10" />
+                                            <polyline points="12 6 12 12 16 14" />
+                                        </svg>
+                                        Lento / se congela
+                                    </span></label>
+                                <label class="sym-opt"><input type="checkbox" name="sintoma"
+                                        value="Ruidos extraños">
+                                    <span class="sym-tag">
+                                        <svg class="sym-ico" viewBox="0 0 24 24" aria-hidden="true">
+                                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                                            <path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07" />
+                                        </svg>
+                                        Ruidos extraños
+                                    </span></label>
+                                <label class="sym-opt"><input type="checkbox" name="sintoma"
+                                        value="Sobrecalentamiento">
+                                    <span class="sym-tag">
+                                        <svg class="sym-ico" viewBox="0 0 24 24" aria-hidden="true">
+                                            <path d="M14 14.76V3.5a2.5 2.5 0 00-5 0v11.26a4.5 4.5 0 105 0z" />
+                                        </svg>
+                                        Sobrecalentamiento
+                                    </span></label>
+                                <label class="sym-opt"><input type="checkbox" name="sintoma"
+                                        value="Virus / Malware">
+                                    <span class="sym-tag">
+                                        <svg class="sym-ico" viewBox="0 0 24 24" aria-hidden="true">
+                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                            <line x1="9" y1="9" x2="15" y2="15" />
+                                            <line x1="15" y1="9" x2="9" y2="15" />
+                                        </svg>
+                                        Virus / Malware
+                                    </span></label>
+                                <label class="sym-opt"><input type="checkbox" name="sintoma"
+                                        value="Sin conexión a internet">
+                                    <span class="sym-tag">
+                                        <svg class="sym-ico" viewBox="0 0 24 24" aria-hidden="true">
+                                            <line x1="1" y1="1" x2="23" y2="23" />
+                                            <path
+                                                d="M16.72 11.06A10.94 10.94 0 0119 12.55M5 12.55a10.94 10.94 0 015.17-2.39M10.71 5.05A16 16 0 0122.56 9M1.42 9a15.91 15.91 0 014.7-2.88M8.53 16.11a6 6 0 016.95 0" />
+                                            <line x1="12" y1="20" x2="12.01" y2="20" />
+                                        </svg>
+                                        Sin internet
+                                    </span></label>
+                                <label class="sym-opt"><input type="checkbox" name="sintoma"
+                                        value="Pantalla / imagen defectuosa">
+                                    <span class="sym-tag">
+                                        <svg class="sym-ico" viewBox="0 0 24 24" aria-hidden="true">
+                                            <rect x="2" y="3" width="20" height="14" rx="2" />
+                                            <path d="M8 21h8M12 17v4" />
+                                            <line x1="9" y1="7" x2="15" y2="13" />
+                                            <line x1="15" y1="7" x2="9" y2="13" />
+                                        </svg>
+                                        Pantalla defectuosa
+                                    </span></label>
+                                <label class="sym-opt"><input type="checkbox" name="sintoma"
+                                        value="Disco no reconocido / pérdida de datos">
+                                    <span class="sym-tag">
+                                        <svg class="sym-ico" viewBox="0 0 24 24" aria-hidden="true">
+                                            <line x1="22" y1="12" x2="2" y2="12" />
+                                            <path
+                                                d="M5.45 5.11L2 12v6a2 2 0 002 2h16a2 2 0 002-2v-6l-3.45-6.89A2 2 0 0016.76 4H7.24a2 2 0 00-1.79 1.11z" />
+                                            <line x1="6" y1="16" x2="6.01" y2="16" />
+                                            <line x1="10" y1="16" x2="10.01" y2="16" />
+                                        </svg>
+                                        Problema con disco
+                                    </span></label>
+                                <label class="sym-opt"><input type="checkbox" name="sintoma"
+                                        value="Actualizaciones fallidas">
+                                    <span class="sym-tag">
+                                        <svg class="sym-ico" viewBox="0 0 24 24" aria-hidden="true">
+                                            <polyline points="23 4 23 10 17 10" />
+                                            <polyline points="1 20 1 14 7 14" />
+                                            <path
+                                                d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15" />
+                                        </svg>
+                                        Actualizaciones fallidas
+                                    </span></label>
+                                <label class="sym-opt"><input type="checkbox" name="sintoma"
+                                        value="Bajo rendimiento en juegos">
+                                    <span class="sym-tag">
+                                        <svg class="sym-ico" viewBox="0 0 24 24" aria-hidden="true">
+                                            <line x1="6" y1="11" x2="10" y2="11" />
+                                            <line x1="8" y1="9" x2="8" y2="13" />
+                                            <line x1="15" y1="12" x2="15.01" y2="12" />
+                                            <line x1="18" y1="10" x2="18.01" y2="10" />
+                                            <path
+                                                d="M17.32 5H6.68a4 4 0 00-3.98 3.59l-.7 6.65A4 4 0 006 20h12a4 4 0 003.99-4.3l-.7-6.65A4 4 0 0017.32 5z" />
+                                        </svg>
+                                        Bajo rendimiento
+                                    </span></label>
+                                <label class="sym-opt"><input type="checkbox" name="sintoma"
+                                        value="Ventilador muy ruidoso">
+                                    <span class="sym-tag">
+                                        <svg class="sym-ico" viewBox="0 0 24 24" aria-hidden="true">
+                                            <path
+                                                d="M9.59 4.59A2 2 0 1111 8H2m10.59 11.41A2 2 0 1010 16H2m15.73-8.27A2.5 2.5 0 1119.5 12H2" />
+                                        </svg>
+                                        Ventilador ruidoso
+                                    </span></label>
+                            </div>
+                        </div>
+
+                        <div class="field" id="f-descripcion">
+                            <label for="descripcion">Describe el problema con tus palabras <span class="req"
+                                    aria-label="obligatorio">*</span></label>
+                            <textarea class="f-input" id="descripcion" rows="4"
+                                placeholder="Ej. El ordenador tarda 10 minutos en arrancar, hace ruidos extraños…"
+                                aria-required="true" minlength="20" maxlength="2000"></textarea>
+                            <span class="err-msg" role="alert">Describe el problema (mínimo 20 caracteres).</span>
+                        </div>
+                        <div class="field">
+                            <label for="fecha-inicio">¿Cuándo empezó el problema?</label>
+                            <input class="f-input" type="date" id="fecha-inicio" style="max-width:200px" />
+                        </div>
+                        <div class="field">
+                            <label for="intentos">¿Has intentado solucionarlo?</label>
+                            <textarea class="f-input" id="intentos" rows="2"
+                                placeholder="Ej. Reinicié, desinstalé el antivirus…"
+                                maxlength="1000"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 4 -->
+                <div class="form-step" id="step-4" role="group" aria-labelledby="title-step-4">
+                    <h3 class="step-title" id="title-step-4">¿Cuándo y cómo?</h3>
+                    <p class="step-sub">Coordina la visita o el soporte a tu medida.</p>
+                    <div class="fields">
+                        <!-- URGENCIA -->
+                        <div class="field" id="f-urgencia">
+                            <label>Nivel de urgencia <span class="req" aria-label="obligatorio">*</span></label>
+                            <div class="radio-stack" role="radiogroup" aria-label="Nivel de urgencia">
+                                <label class="rad-opt">
+                                    <input type="radio" name="urgencia" value="Normal (3–5 días hábiles)">
+                                    <div class="rad-card">
+                                        <span class="rad-dot" aria-hidden="true"></span>
+                                        <svg class="rad-ico rad-ico--circle" viewBox="0 0 24 24" aria-hidden="true"
+                                            style="fill:var(--green);stroke:none">
+                                            <circle cx="12" cy="12" r="9" />
+                                        </svg>
+                                        <div>
+                                            <div class="rad-title">Normal</div>
+                                            <div class="rad-sub">3–5 días hábiles</div>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="rad-opt">
+                                    <input type="radio" name="urgencia" value="Urgente (1–2 días)">
+                                    <div class="rad-card">
+                                        <span class="rad-dot" aria-hidden="true"></span>
+                                        <svg class="rad-ico rad-ico--circle" viewBox="0 0 24 24" aria-hidden="true"
+                                            style="fill:var(--amber);stroke:none">
+                                            <circle cx="12" cy="12" r="9" />
+                                        </svg>
+                                        <div>
+                                            <div class="rad-title">Urgente</div>
+                                            <div class="rad-sub">1–2 días hábiles</div>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="rad-opt">
+                                    <input type="radio" name="urgencia" value="Muy urgente (hoy o mañana)">
+                                    <div class="rad-card">
+                                        <span class="rad-dot" aria-hidden="true"></span>
+                                        <svg class="rad-ico rad-ico--circle" viewBox="0 0 24 24" aria-hidden="true"
+                                            style="fill:var(--red);stroke:none">
+                                            <circle cx="12" cy="12" r="9" />
+                                        </svg>
+                                        <div>
+                                            <div class="rad-title">Muy urgente</div>
+                                            <div class="rad-sub">Hoy o mañana si hay disponibilidad</div>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                            <span class="err-msg" role="alert">Indica la urgencia.</span>
+                        </div>
+
+                        <!-- MODALIDAD -->
+                        <div class="field" id="f-modalidad">
+                            <label>Modalidad preferida <span class="req" aria-label="obligatorio">*</span></label>
+                            <div class="radio-stack" role="radiogroup" aria-label="Modalidad de servicio">
+                                <label class="rad-opt">
+                                    <input type="radio" name="modalidad" value="A domicilio" />
+                                    <div class="rad-card">
+                                        <span class="rad-dot" aria-hidden="true"></span>
+                                        <svg class="rad-ico" viewBox="0 0 24 24" aria-hidden="true">
+                                            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+                                            <polyline points="9 22 9 12 15 12 15 22" />
+                                        </svg>
+                                        <div>
+                                            <div class="rad-title">A domicilio</div>
+                                            <div class="rad-sub">Desplazamiento incluido en zona Sitges</div>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="rad-opt">
+                                    <input type="radio" name="modalidad" value="Soporte remoto" />
+                                    <div class="rad-card">
+                                        <span class="rad-dot" aria-hidden="true"></span>
+                                        <svg class="rad-ico" viewBox="0 0 24 24" aria-hidden="true">
+                                            <rect x="2" y="3" width="20" height="14" rx="2" />
+                                            <path d="M8 21h8M12 17v4" />
+                                        </svg>
+                                        <div>
+                                            <div class="rad-title">Soporte remoto</div>
+                                            <div class="rad-sub">Solo para problemas de software · 25 €/h</div>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="rad-opt">
+                                    <input type="radio" name="modalidad" value="Entrega en mano" />
+                                    <div class="rad-card">
+                                        <span class="rad-dot" aria-hidden="true"></span>
+                                        <svg class="rad-ico" viewBox="0 0 24 24" aria-hidden="true">
+                                            <path
+                                                d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 002 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" />
+                                            <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                                            <line x1="12" y1="22.08" x2="12" y2="12" />
+                                        </svg>
+                                        <div>
+                                            <div class="rad-title">Entrega en mano</div>
+                                            <div class="rad-sub">Me traes el equipo a punto acordado</div>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                            <span class="err-msg" role="alert">Selecciona la modalidad.</span>
+                        </div>
+
+                        <!-- DISPONIBILIDAD -->
+                        <div class="field" id="f-disponibilidad">
+                            <label>Disponibilidad horaria <span class="req" aria-label="obligatorio">*</span>
+                                <span style="font-weight:400;text-transform:none;letter-spacing:0">(puedes marcar varias)</span>
+                            </label>
+                            <div class="avail-grid" role="group" aria-label="Franjas horarias disponibles">
+                                <label class="av-opt"><input type="checkbox" name="disponibilidad"
+                                        value="Mañanas (9:00–14:00)" />
+                                    <div class="av-card">
+                                        <svg class="av-ico" viewBox="0 0 24 24" aria-hidden="true">
+                                            <path d="M17 18a5 5 0 00-10 0" />
+                                            <path d="M12 9V2" />
+                                            <path d="M4.22 10.22l1.42 1.42M18.36 11.64l1.42-1.42" />
+                                            <path d="M1 18h2M21 18h2" />
+                                            <polyline points="8 6 12 2 16 6" />
+                                        </svg>
+                                        Mañanas (9–14h)
+                                    </div>
+                                </label>
+                                <label class="av-opt"><input type="checkbox" name="disponibilidad"
+                                        value="Tardes (16:00–20:00)" />
+                                    <div class="av-card">
+                                        <svg class="av-ico" viewBox="0 0 24 24" aria-hidden="true">
+                                            <circle cx="12" cy="12" r="5" />
+                                            <line x1="12" y1="1" x2="12" y2="3" />
+                                            <line x1="12" y1="21" x2="12" y2="23" />
+                                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                                            <line x1="1" y1="12" x2="3" y2="12" />
+                                            <line x1="21" y1="12" x2="23" y2="12" />
+                                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                                        </svg>
+                                        Tardes (16–20h)
+                                    </div>
+                                </label>
+                                <label class="av-opt"><input type="checkbox" name="disponibilidad" value="Sábado" />
+                                    <div class="av-card">
+                                        <svg class="av-ico" viewBox="0 0 24 24" aria-hidden="true">
+                                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                                            <line x1="16" y1="2" x2="16" y2="6" />
+                                            <line x1="8" y1="2" x2="8" y2="6" />
+                                            <line x1="3" y1="10" x2="21" y2="10" />
+                                        </svg>
+                                        Sábado
+                                    </div>
+                                </label>
+                                <label class="av-opt"><input type="checkbox" name="disponibilidad"
+                                        value="Me llamas y lo acordamos" />
+                                    <div class="av-card">
+                                        <svg class="av-ico" viewBox="0 0 24 24" aria-hidden="true">
+                                            <path
+                                                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-5-5 19.79 19.79 0 01-3.07-8.67A2 2 0 015.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.91 9.91a16 16 0 006.29 6.29l1.27-.52a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                                        </svg>
+                                        Me llamas y acordamos
+                                    </div>
+                                </label>
+                            </div>
+                            <span class="err-msg" role="alert">Indica al menos una franja horaria.</span>
+                        </div>
+
+                        <!-- BACKUP -->
+                        <div class="field" id="f-backup">
+                            <label>¿Tienes copia de seguridad de tus datos? <span class="req"
+                                    aria-label="obligatorio">*</span></label>
+                            <div class="radio-stack" role="radiogroup" aria-label="Estado de copia de seguridad">
+                                <label class="rad-opt">
+                                    <input type="radio" name="backup" value="Sí, tengo backup" />
+                                    <div class="rad-card">
+                                        <span class="rad-dot" aria-hidden="true"></span>
+                                        <svg class="rad-ico" viewBox="0 0 24 24" aria-hidden="true"
+                                            style="stroke:var(--green)">
+                                            <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+                                            <polyline points="22 4 12 14.01 9 11.01" />
+                                        </svg>
+                                        <div>
+                                            <div class="rad-title">Sí, tengo copia</div>
+                                            <div class="rad-sub">Mis datos están a salvo</div>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="rad-opt">
+                                    <input type="radio" name="backup" value="No tengo backup" />
+                                    <div class="rad-card">
+                                        <span class="rad-dot" aria-hidden="true"></span>
+                                        <svg class="rad-ico" viewBox="0 0 24 24" aria-hidden="true"
+                                            style="stroke:var(--red)">
+                                            <circle cx="12" cy="12" r="10" />
+                                            <line x1="15" y1="9" x2="9" y2="15" />
+                                            <line x1="9" y1="9" x2="15" y2="15" />
+                                        </svg>
+                                        <div>
+                                            <div class="rad-title">No tengo copia</div>
+                                            <div class="rad-sub">Prefiero avisar con antelación</div>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="rad-opt">
+                                    <input type="radio" name="backup" value="No lo sé" />
+                                    <div class="rad-card">
+                                        <span class="rad-dot" aria-hidden="true"></span>
+                                        <svg class="rad-ico" viewBox="0 0 24 24" aria-hidden="true">
+                                            <circle cx="12" cy="12" r="10" />
+                                            <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3" />
+                                            <line x1="12" y1="17" x2="12.01" y2="17" />
+                                        </svg>
+                                        <div>
+                                            <div class="rad-title">No lo sé</div>
+                                            <div class="rad-sub">No estoy seguro</div>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                            <span class="err-msg" role="alert">Indica si tienes backup.</span>
+                            <div class="warn-box" id="warn-backup" role="alert" aria-live="polite">
+                                <svg class="warn-ico" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path
+                                        d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+                                    <line x1="12" y1="9" x2="12" y2="13" />
+                                    <line x1="12" y1="17" x2="12.01" y2="17" />
+                                </svg>
+                                <p><strong>Importante:</strong> Sin copia de seguridad, algunas operaciones
+                                    (formateo, migración de disco) podrían suponer riesgo para tus datos. Te
+                                    recomendaré hacer una copia antes de iniciar cualquier trabajo que pueda
+                                    afectarlos.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 5 -->
+                <div class="form-step" id="step-5" role="group" aria-labelledby="title-step-5">
+                    <h3 class="step-title" id="title-step-5">Revisa y confirma</h3>
+                    <p class="step-sub">Comprueba que todo está correcto antes de enviar.</p>
+                    <div class="review-grid" id="review-content" aria-label="Resumen de tu solicitud"></div>
+                    <div class="fields">
+                        <div class="field">
+                            <label for="observaciones">Observaciones adicionales</label>
+                            <textarea class="f-input" id="observaciones" rows="3"
+                                placeholder="Cualquier información extra…"
+                                maxlength="1000"></textarea>
+                        </div>
+                        <div class="field" id="f-rgpd">
+                            <label class="consent-box">
+                                <input type="checkbox" id="rgpd" aria-required="true" />
+                                <p>Acepto el tratamiento de mis datos personales para la gestión y seguimiento de mi
+                                    solicitud de reparación, conforme al <strong>RGPD (UE) 2016/679</strong>. Los
+                                    datos facilitados serán usados exclusivamente para coordinar el servicio y no
+                                    serán cedidos a terceros. <span class="req" aria-label="obligatorio">*</span>
+                                </p>
+                            </label>
+                            <span class="err-msg" role="alert">Debes aceptar el tratamiento de datos para
+                                continuar.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-nav" id="form-nav">
+                    <button type="button" class="btn btn-g btn-sm" id="btn-prev" style="display:none"
+                        aria-label="Paso anterior">← Anterior</button>
+                    <div style="margin-left:auto;display:flex;gap:.75rem;align-items:center;flex-wrap:wrap">
+                        <span id="step-counter"
+                            style="font-size:.8rem;color:var(--text-dim);font-family:'JetBrains Mono'"
+                            aria-live="polite">Paso 1 / 5</span>
+                        <button type="button" class="btn btn-p" id="btn-next"
+                            aria-label="Siguiente paso">Siguiente →</button>
+                        <button type="button" class="btn btn-p" id="btn-submit" style="display:none">Enviar solicitud
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round"
+                                style="width:.9rem;height:.9rem;vertical-align:-0.1em" aria-hidden="true">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg></button>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto">
+        <div class="wrap">
+            <header class="sec-hdr reveal">
+                <h2 class="sec-title">¿Prefieres hablar<br>directamente?</h2>
+                <div class="avail-badge">Cargando...</div>
+            </header>
+            <div class="contact-grid stagger">
+                <a class="cc obf-mailto" href="#" data-u="christianrodriguezarias" data-d="gmail.com"
+                    aria-label="Enviar email a Cristian Ricardo">
+                    <img class="cc-ico" src="assets/svg/email.svg" alt="" width="28" height="28">
+                    <span class="cc-lbl">Email</span>
+                    <span class="cc-val obf-email" data-u="christianrodriguezarias" data-d="gmail.com"></span>
+                    <span class="cc-desc">Respuesta en menos de 24h</span>
+                </a>
+                <a class="cc" href="https://wa.me/34607066690" target="_blank" rel="noopener noreferrer"
+                    aria-label="Contactar por WhatsApp">
+                    <img class="cc-ico" src="assets/svg/whatsapp.svg" alt="" width="28" height="28">
+                    <span class="cc-lbl">WhatsApp</span>
+                    <span class="cc-val">Contactar por WhatsApp</span>
+                    <span class="cc-desc">Respuesta rápida en horario laboral</span>
+                </a>
+                <a class="cc" href="https://www.linkedin.com/in/cristian-ricardo-rodriguez-arias-26804134b/"
+                    target="_blank" rel="noopener noreferrer" aria-label="Ver perfil de LinkedIn">
+                    <img class="cc-ico" src="assets/svg/linkedin.svg" alt="" width="28" height="28">
+                    <span class="cc-lbl">LinkedIn</span>
+                    <span class="cc-val">Ver perfil profesional</span>
+                    <span class="cc-desc">Historial y referencias</span>
+                </a>
+                <div class="cc">
+                    <img class="cc-ico" src="assets/svg/location.svg" alt="" width="28" height="28">
+                    <span class="cc-lbl">Ubicación</span>
+                    <span class="cc-val">Sitges, Barcelona</span>
+                    <span class="cc-desc">Servicios a domicilio · zona Garraf</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<div class="section-divider"></div>
+
+    <!-- ========== PREGUNTAS FRECUENTES ========== -->
+    <section id="faq" class="faq">
+        <div class="wrap">
+            <header class="sec-hdr reveal">
+                <h2 class="sec-title">Resuelve tus<br>dudas rápidas.</h2>
+            </header>
+            <div class="faq-search-wrap reveal">
+                <svg class="faq-search-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input type="text" class="faq-search" id="faq-search" placeholder="Buscar en las preguntas frecuentes…" aria-label="Filtrar preguntas frecuentes">
+                <span class="faq-search-count" id="faq-search-count" aria-live="polite"></span>
+            </div>
+            <div class="faq-list reveal" id="faq-list">
+
+                <div class="faq-item">
+                    <button class="faq-q" aria-expanded="false">
+                        <span>¿Cuánto cuesta reparar un ordenador en Sitges?</span>
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-a" aria-hidden="true"><div class="faq-a-inner">
+                        <p>Depende del servicio. El <strong>soporte remoto</strong> es a 25 €/h, la <strong>instalación de sistemas</strong> tiene un precio fijo de 50 €, el <strong>mantenimiento físico</strong> (limpieza + pasta térmica) cuesta 55 €, la <strong>migración de HDD a SSD</strong> 70 €, la <strong>limpieza de consolas</strong> 45 € y la <strong>reparación de consolas</strong> desde 50 €. Si necesitas un servicio combinado, consulta los <strong>packs especiales</strong> con mejor precio. El presupuesto siempre es sin compromiso.</p>
+                    </div></div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-q" aria-expanded="false">
+                        <span>¿Te desplazas a Vilanova i la Geltrú u otros pueblos del Garraf?</span>
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-a" aria-hidden="true"><div class="faq-a-inner">
+                        <p>Sí, el <strong>desplazamiento es gratuito dentro de Sitges</strong>. Para Vilanova i la Geltrú, Sant Pere de Ribes, Canyelles y otros pueblos de la comarca del Garraf, consulto un pequeño suplemento según la distancia. Siempre te confirmo el precio total antes de moverme.</p>
+                    </div></div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-q" aria-expanded="false">
+                        <span>¿Qué tiempo tarda una reparación?</span>
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-a" aria-hidden="true"><div class="faq-a-inner">
+                        <p>La mayoría de reparaciones se resuelven en <strong>1-2 días</strong>. Una limpieza con cambio de pasta térmica o una migración a SSD suele estar lista el mismo día. Para problemas más complejos (averías de hardware, recuperación de datos), puede tardar entre 3-5 días laborables. Siempre te doy una estimación tras el diagnóstico.</p>
+                    </div></div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-q" aria-expanded="false">
+                        <span>¿Mis datos están seguros durante la reparación?</span>
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-a" aria-hidden="true"><div class="faq-a-inner">
+                        <p>Absolutamente. Cumplimos el <strong>RGPD (UE) 2016/679</strong>. Tus datos personales solo se utilizan para coordinar el servicio y no se ceden a terceros. Si el problema requiere operaciones de riesgo para los datos (formateo, cambio de disco), te recomiendo encarecidamente hacer una copia de seguridad antes y te ayudo a verificarla.</p>
+                    </div></div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-q" aria-expanded="false">
+                        <span>¿Reparas consolas (PlayStation, Xbox, Nintendo)?</span>
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-a" aria-hidden="true"><div class="faq-a-inner">
+                        <p>Sí. Realizo <strong>limpieza interna, cambio de pasta térmica y revisión de ventilación</strong> en PlayStation 4/5, Xbox One/Series y Nintendo Switch. Esto soluciona problemas de sobrecalentamiento, ruidos del ventilador y apagados repentinos. Para averías de placa o disco duro interno, te derivaré a un especialista si no puedo resolverlo.</p>
+                    </div></div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-q" aria-expanded="false">
+                        <span>¿Qué es el soporte remoto y cómo funciona?</span>
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-a" aria-hidden="true"><div class="faq-a-inner">
+                        <p>El soporte remoto permite resolver <strong>problemas de software sin desplazarme</strong>. Mediante una conexión segura, accedo a tu equipo y resuelvo incidencias como configuraciones, virus, errores del sistema o problemas de red. Tarifa: <strong>25 €/h</strong>. Es ideal para problemas que no requieren intervención física.</p>
+                    </div></div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-q" aria-expanded="false">
+                        <span>¿Vale la pena pasar de HDD a SSD?</span>
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-a" aria-hidden="true"><div class="faq-a-inner">
+                        <p><strong>Es la mejora con mejor relación calidad-precio</strong> para un ordenador lento. Un SSD hace que el equipo arranque en 10-15 segundos (frente a 2-3 minutos con HDD), las aplicaciones se abren al instante y el uso general se nota mucho más fluido. El coste es de <strong>70 €</strong> incluyendo clonación completa de tu sistema — no pierdes nada.</p>
+                    </div></div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-q" aria-expanded="false">
+                        <span>¿Ofreces factura o recibo?</span>
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-a" aria-hidden="true"><div class="faq-a-inner">
+                        <p>Sí, puedo emitir <strong>factura o recibo</strong> según prefieras. Acepto pagos en <strong>efectivo, transferencia bancaria y Bizum</strong>. Si necesitas factura con IVA, indícalo al solicitar el servicio.</p>
+                    </div></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="wrap">
+        <div class="foot-grid">
+            <div class="foot-brand">
+                <a href="#main-content" class="logo" aria-label="Ricartech — Ir al inicio">
+                    <span class="logo-dot" aria-hidden="true"></span>Ricar <em>tech</em>
+                </a>
+                <p>Técnico informático freelance en Sitges y comarca del Garraf. Reparaciones a domicilio, soporte remoto y mantenimiento de equipos.</p>
+            </div>
+            <div class="foot-col">
+                <h4>Servicios</h4>
+                <ul>
+                    <li><a href="#servicios">Soporte Remoto</a></li>
+                    <li><a href="#servicios">Instalación de Sistemas</a></li>
+                    <li><a href="#servicios">Mantenimiento Físico</a></li>
+                    <li><a href="#servicios">Migración HDD → SSD</a></li>
+                    <li><a href="#servicios">Gestión de Datos</a></li>
+                    <li><a href="#servicios">Limpieza de Consolas</a></li>
+                    <li><a href="#servicios">Reparación de Consolas</a></li>
+                </ul>
+            </div>
+            <div class="foot-col">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="#packs">Packs Especiales</a></li>
+                    <li><a href="#faq">Preguntas Frecuentes</a></li>
+                    <li><a href="#registro">Registrar Avería</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="foot-bottom">
+            <p class="foot-copy">&copy; 2026 Cristian Ricardo · Técnico Informático &amp; Desarrollador web Junior · Sitges</p>
+            <span class="foot-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:14px;height:14px;flex-shrink:0"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>Desplazamiento incluido en zona Sitges</span>
+            <a href="#" id="open-privacy" class="foot-privacy-link">Política de Privacidad y Cookies</a>
+        </div>
+    </div>
+</footer>
+
+<div class="fab-g" role="group" aria-label="Acciones rápidas">
+    <a href="https://wa.me/34607066690" class="fab fab-wa" target="_blank" rel="noopener noreferrer"
+        aria-label="Contactar por WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+    <button type="button" class="fab fab-top" id="fab-top" aria-label="Volver al inicio de la página"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg></button>
+</div>
+
+<!-- ========== KEYBOARD SHORTCUTS PANEL ========== -->
+<div class="kb-panel" id="kb-panel" role="dialog" aria-label="Atajos de teclado" aria-hidden="true">
+    <div class="kb-panel-inner">
+        <h4>Atajos de teclado</h4>
+        <div class="kb-list">
+            <div class="kb-row"><kbd>?</kbd><span>Mostrar/ocultar esta ayuda</span></div>
+            <div class="kb-row"><kbd>T</kbd><span>Ir al formulario de registro</span></div>
+            <div class="kb-row"><kbd>H</kbd><span>Volver al inicio</span></div>
+            <div class="kb-row"><kbd>Esc</kbd><span>Cerrar paneles / menú</span></div>
+        </div>
+        <p class="kb-hint">Pulsa <kbd>?</kbd> en cualquier momento para ver esta ayuda</p>
+    </div>
+</div>
+
+<!-- ========== MODAL POLÍTICA DE PRIVACIDAD ========== -->
+<div class="privacy-modal" id="privacy-modal" role="dialog" aria-label="Política de Privacidad y Cookies" aria-hidden="true">
+    <div class="privacy-overlay" id="privacy-overlay"></div>
+    <div class="privacy-inner">
+        <div class="privacy-hdr">
+            <h3>Política de Privacidad y Cookies</h3>
+            <button type="button" class="privacy-close" id="privacy-close" aria-label="Cerrar política de privacidad">&times;</button>
+        </div>
+        <div class="privacy-body">
+            <h4>1. Responsable del tratamiento</h4>
+            <p><strong>Titular:</strong> Cristian Ricardo Rodríguez Arias (Ricartech)<br>
+            <strong>Contacto:</strong> christopherrodriguezarias@gmail.com<br>
+            <strong>Ubicación:</strong> Sitges, Barcelona, España</p>
+
+            <h4>2. Datos que recopilo</h4>
+            <p>A través del formulario de registro de avería recopilo: nombre, teléfono, dirección de correo electrónico, tipo de dispositivo, descripción del problema y preferencias de disponibilidad. Estos datos se utilizan exclusivamente para contactarte, diagnosticar el problema y ofrecer un presupuesto.</p>
+
+            <h4>3. Finalidad del tratamiento</h4>
+            <ul>
+                <li>Gestionar tu solicitud de reparación o soporte técnico.</li>
+                <li>Elaborar y enviar un presupuesto sin compromiso.</li>
+                <li>Contactarte para coordinar la visita o el soporte remoto.</li>
+            </ul>
+
+            <h4>4. Base legal</h4>
+            <p>El tratamiento de tus datos se basa en tu consentimiento explícito al enviar el formulario, y en la necesidad de ejecutar el contrato de servicios técnicos que solicites (art. 6.1.b del RGPD).</p>
+
+            <h4>5. Conservación de datos</h4>
+            <p>Los datos de las solicitudes de servicio se conservan durante 2 años desde la última interacción. Los datos de cookies técnicas se eliminan al cerrar el navegador.</p>
+
+            <h4>6. Derechos del interesado</h4>
+            <p>Puedes ejercer en cualquier momento tus derechos de: acceso, rectificación, supresión, limitación del tratamiento, portabilidad y oposición. Para ello, escríbeme a <span class="obf-email" data-u="christianrodriguezarias" data-d="gmail.com"></span>.</p>
+
+            <h4>7. Cookies que utilizo</h4>
+            <table>
+                <thead><tr><th>Cookie</th><th>Tipo</th><th>Finalidad</th><th>Duración</th></tr></thead>
+                <tbody>
+                    <tr><td>cookie_consent</td><td>Técnica (propia)</td><td>Almacena tu preferencia de aceptación de cookies</td><td>1 año</td></tr>
+                    <tr><td>_session</td><td>Técnica (propia)</td><td>Mantiene la sesión del formulario multi-paso</td><td>Sesión</td></tr>
+                </tbody>
+            </table>
+            <p>No utilizo cookies de análisis, publicitarias ni de terceros. Solo cookies técnicas necesarias para el funcionamiento básico del sitio.</p>
+
+            <h4>8. Medidas de seguridad</h4>
+            <p>El correo electrónico mostrado en la web está ofuscado mediante JavaScript para evitar la extracción automatizada por bots. Las comunicaciones se realizan a través de los canales que tú elijas (email, WhatsApp).</p>
+
+            <h4>9. Modificaciones</h4>
+            <p>Esta política puede actualizarse. Te recomiendo revisarla periódicamente. La última actualización corresponde a julio de 2025.</p>
+        </div>
+    </div>
+</div>
+
+<!-- ========== COOKIE CONSENT (RGPD) ========== -->
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Consentimiento de cookies">
+    <p>Utilizo cookies para mejorar tu experiencia. Al continuar navegando, aceptas su uso. Puedes leer más en mi <a href="#" id="cookie-privacy-link">política de privacidad</a>.</p>
+    <div class="cookie-btns">
+        <button type="button" class="btn btn-g btn-sm" id="cookie-decline">Rechazar</button>
+        <button type="button" class="btn btn-p btn-sm cookie-accept" id="cookie-accept">Aceptar</button>
+    </div>
+</div>
+      
+    <script src="js/script.js"></script>
+</body>
+</html>
