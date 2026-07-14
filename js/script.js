@@ -424,7 +424,7 @@
     // desplegar el script y pegar aquí la URL de despliegue.
     // Mientras tanto, los tickets se guardan en localStorage.
     // ─────────────────────────────────────────────────────────
-    var BACKEND_URL = 'https://script.google.com/macros/s/AKfycbzop6WMdyz5SXcXiPuKHyIirrnteMAysppNw-7C5DSauud8O9qZUTBCFr0b4sMJ_Sgseg/exec'; // Ejemplo: 'https://script.google.com/macros/s/TU_ID_AQUI/exec'
+    var BACKEND_URL = null; // Ejemplo: 'https://script.google.com/macros/s/TU_ID_AQUI/exec'
 
     function submitForm() {
         if (!validate(5)) return;
@@ -514,14 +514,15 @@
         if (BACKEND_URL) {
             fetch(BACKEND_URL, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 'Content-Type': 'text/plain' },
                 body: JSON.stringify(ticket)
             })
             .then(function (r) {
-                if (!r.ok) throw new Error('HTTP ' + r.status);
-                return r.json();
+                // Google Apps Script redirige a una página 200 tras ejecutar.
+                // No podemos leer JSON (la respuesta final es HTML del wrapper de Google).
+                // Si llegamos aquí sin error de red, el script se ejecutó.
+                finish(r.ok);
             })
-            .then(function (res) { finish(!!(res && res.ok)); })
             .catch(function () { finish(false); });
         } else {
             // Modo demo: almacena en localStorage hasta que el backend esté activo.
