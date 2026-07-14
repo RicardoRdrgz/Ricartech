@@ -53,8 +53,8 @@
 
     /* ========== SCROLL PROGRESS + HEADER ========== */
 
-    var pgBar  = document.getElementById('pg');
-    var hdrEl  = document.getElementById('hdr');
+    var pgBar = document.getElementById('pg');
+    var hdrEl = document.getElementById('hdr');
     var fabTop = document.getElementById('fab-top');
 
     var ticking = false;
@@ -66,8 +66,8 @@
             var scrollH = document.documentElement.scrollHeight - window.innerHeight;
             var pct = scrollH > 0 ? scrollY / scrollH : 0;
 
-            if (pgBar)  pgBar.style.width = pct * 100 + '%';
-            if (hdrEl)  hdrEl.classList.toggle('scrolled', scrollY > 30);
+            if (pgBar) pgBar.style.width = pct * 100 + '%';
+            if (hdrEl) hdrEl.classList.toggle('scrolled', scrollY > 30);
             if (fabTop) fabTop.classList.toggle('show', scrollY > 450);
             ticking = false;
         });
@@ -235,7 +235,7 @@
         for (var j = 0; j < nodes.length; j++) {
             nodes[j].classList.remove('active', 'done');
             nodes[j].removeAttribute('aria-current');
-            if (j + 1 < n)  nodes[j].classList.add('done');
+            if (j + 1 < n) nodes[j].classList.add('done');
             if (j + 1 === n) {
                 nodes[j].classList.add('active');
                 nodes[j].setAttribute('aria-current', 'step');
@@ -250,15 +250,15 @@
         }
         updateStepBar(n);
 
-        var btnPrev     = document.getElementById('btn-prev');
-        var btnNext     = document.getElementById('btn-next');
-        var btnSubmit   = document.getElementById('btn-submit');
+        var btnPrev = document.getElementById('btn-prev');
+        var btnNext = document.getElementById('btn-next');
+        var btnSubmit = document.getElementById('btn-submit');
         var stepCounter = document.getElementById('step-counter');
 
-        if (btnPrev)     btnPrev.style.display    = n > 1 ? '' : 'none';
-        if (btnNext)     btnNext.style.display    = n < TOTAL_STEPS ? '' : 'none';
-        if (btnSubmit)   btnSubmit.style.display  = n === TOTAL_STEPS ? '' : 'none';
-        if (stepCounter) stepCounter.textContent  = 'Paso ' + n + ' / ' + TOTAL_STEPS;
+        if (btnPrev) btnPrev.style.display = n > 1 ? '' : 'none';
+        if (btnNext) btnNext.style.display = n < TOTAL_STEPS ? '' : 'none';
+        if (btnSubmit) btnSubmit.style.display = n === TOTAL_STEPS ? '' : 'none';
+        if (stepCounter) stepCounter.textContent = 'Paso ' + n + ' / ' + TOTAL_STEPS;
 
         if (n === TOTAL_STEPS) buildReview();
 
@@ -291,31 +291,31 @@
         firstError = null;
 
         if (step === 1) {
-            setError('f-nombre',    !getVal('nombre'));
-            setError('f-telefono',  !PHONE_RE.test(getVal('telefono').replace(/\s/g, '')));
-            setError('f-email',     !EMAIL_RE.test(getVal('email')));
+            setError('f-nombre', !getVal('nombre'));
+            setError('f-telefono', !PHONE_RE.test(getVal('telefono').replace(/\s/g, '')));
+            setError('f-email', !EMAIL_RE.test(getVal('email')));
             setError('f-direccion', !getVal('direccion'));
             setError('f-localidad', !getVal('localidad'));
         }
 
         if (step === 2) {
-            setError('f-tipo',   !document.querySelector('input[name="tipo"]:checked'));
-            setError('f-marca',  !getVal('marca'));
+            setError('f-tipo', !document.querySelector('input[name="tipo"]:checked'));
+            setError('f-marca', !getVal('marca'));
             setError('f-modelo', !getVal('modelo'));
             var soEl = document.getElementById('so');
-            setError('f-so',     !soEl || !soEl.value);
+            setError('f-so', !soEl || !soEl.value);
         }
 
         if (step === 3) {
-            setError('f-servicios',   !document.querySelector('input[name="servicios"]:checked'));
+            setError('f-servicios', !document.querySelector('input[name="servicios"]:checked'));
             setError('f-descripcion', getVal('descripcion').length < 20);
         }
 
         if (step === 4) {
-            setError('f-urgencia',       !document.querySelector('input[name="urgencia"]:checked'));
-            setError('f-modalidad',      !document.querySelector('input[name="modalidad"]:checked'));
+            setError('f-urgencia', !document.querySelector('input[name="urgencia"]:checked'));
+            setError('f-modalidad', !document.querySelector('input[name="modalidad"]:checked'));
             setError('f-disponibilidad', !document.querySelector('input[name="disponibilidad"]:checked'));
-            setError('f-backup',         !document.querySelector('input[name="backup"]:checked'));
+            setError('f-backup', !document.querySelector('input[name="backup"]:checked'));
         }
 
         if (step === 5) {
@@ -376,43 +376,43 @@
         // FIX XSS: vacío y reconstruyo con DOM API, no innerHTML
         while (container.firstChild) container.removeChild(container.firstChild);
 
-        var anioEl     = document.getElementById('anio');
-        var soEl       = document.getElementById('so');
+        var anioEl = document.getElementById('anio');
+        var soEl = document.getElementById('so');
         var habitualEl = document.getElementById('cliente-habitual');
 
         var dir = getVal('direccion');
         var loc = getVal('localidad');
-        var cp  = getVal('cp');
+        var cp = getVal('cp');
         var fullAddr = [dir, loc, cp].filter(Boolean).join(', ');
 
         buildBlock(container, 'Datos del cliente', [
-            ['Nombre',           getVal('nombre')],
-            ['Teléfono',         getVal('telefono')],
-            ['Email',            getVal('email')],
-            ['Dirección',        fullAddr],
+            ['Nombre', getVal('nombre')],
+            ['Teléfono', getVal('telefono')],
+            ['Email', getVal('email')],
+            ['Dirección', fullAddr],
             ['Cliente habitual', habitualEl && habitualEl.value === 'si' ? 'Sí' : 'No']
         ]);
 
         buildBlock(container, 'Dispositivo', [
-            ['Tipo',          getChecked('tipo')[0]],
+            ['Tipo', getChecked('tipo')[0]],
             ['Marca / Modelo', getVal('marca') + ' ' + getVal('modelo')],
-            ['S.O.',          soEl ? soEl.value : ''],
-            ['Año aprox.',    anioEl ? (anioEl.value || 'No indicado') : ''],
-            ['Nº serie',      getVal('serie') || 'No indicado']
+            ['S.O.', soEl ? soEl.value : ''],
+            ['Año aprox.', anioEl ? (anioEl.value || 'No indicado') : ''],
+            ['Nº serie', getVal('serie') || 'No indicado']
         ]);
 
         buildBlock(container, 'El problema', [
-            ['Servicio(s)',     getChecked('servicios').join(', ')],
-            ['Síntomas',        getChecked('sintoma').join(', ') || 'No indicados'],
-            ['Descripción',     getVal('descripcion')],
+            ['Servicio(s)', getChecked('servicios').join(', ')],
+            ['Síntomas', getChecked('sintoma').join(', ') || 'No indicados'],
+            ['Descripción', getVal('descripcion')],
             ['Inicio del prob.', getVal('fecha-inicio') || 'No indicado']
         ]);
 
         buildBlock(container, 'Logística', [
-            ['Urgencia',       getChecked('urgencia')[0]],
-            ['Modalidad',      getChecked('modalidad')[0]],
+            ['Urgencia', getChecked('urgencia')[0]],
+            ['Modalidad', getChecked('modalidad')[0]],
             ['Disponibilidad', getChecked('disponibilidad').join(', ')],
-            ['Backup',         getChecked('backup')[0]]
+            ['Backup', getChecked('backup')[0]]
         ]);
     }
 
@@ -424,54 +424,54 @@
     // desplegar el script y pegar aquí la URL de despliegue.
     // Mientras tanto, los tickets se guardan en localStorage.
     // ─────────────────────────────────────────────────────────
-    var BACKEND_URL = null; // Ejemplo: 'https://script.google.com/macros/s/TU_ID_AQUI/exec'
+    var BACKEND_URL = 'https://script.google.com/macros/s/AKfycbzop6WMdyz5SXcXiPuKHyIirrnteMAysppNw-7C5DSauud8O9qZUTBCFr0b4sMJ_Sgseg/exec'; // Ejemplo: 'https://script.google.com/macros/s/TU_ID_AQUI/exec'
 
     function submitForm() {
         if (!validate(5)) return;
 
-        var now      = new Date();
-        var pad      = function (n) { return String(n).padStart(2, '0'); };
-        var dateStr  = now.getFullYear() + pad(now.getMonth() + 1) + pad(now.getDate());
-        var rnd      = String(Math.floor(Math.random() * 9000) + 1000);
+        var now = new Date();
+        var pad = function (n) { return String(n).padStart(2, '0'); };
+        var dateStr = now.getFullYear() + pad(now.getMonth() + 1) + pad(now.getDate());
+        var rnd = String(Math.floor(Math.random() * 9000) + 1000);
         var ticketId = 'TKT-' + dateStr + '-' + rnd;
 
         var habitualEl = document.getElementById('cliente-habitual');
-        var soEl       = document.getElementById('so');
-        var anioEl     = document.getElementById('anio');
+        var soEl = document.getElementById('so');
+        var anioEl = document.getElementById('anio');
 
         var ticket = {
-            id:     ticketId,
-            fecha:  now.toISOString(),
+            id: ticketId,
+            fecha: now.toISOString(),
             estado: 'Pendiente',
             cliente: {
-                nombre:    getVal('nombre'),
-                telefono:  getVal('telefono'),
-                email:     getVal('email'),
+                nombre: getVal('nombre'),
+                telefono: getVal('telefono'),
+                email: getVal('email'),
                 direccion: getVal('direccion'),
                 localidad: getVal('localidad'),
-                cp:        getVal('cp'),
-                habitual:  habitualEl ? habitualEl.value : ''
+                cp: getVal('cp'),
+                habitual: habitualEl ? habitualEl.value : ''
             },
             dispositivo: {
-                tipo:   getChecked('tipo')[0],
-                marca:  getVal('marca'),
+                tipo: getChecked('tipo')[0],
+                marca: getVal('marca'),
                 modelo: getVal('modelo'),
-                serie:  getVal('serie'),
-                so:     soEl ? soEl.value : '',
-                anio:   anioEl ? anioEl.value : ''
+                serie: getVal('serie'),
+                so: soEl ? soEl.value : '',
+                anio: anioEl ? anioEl.value : ''
             },
             averia: {
-                servicios:   getChecked('servicios'),
-                sintomas:    getChecked('sintoma'),
+                servicios: getChecked('servicios'),
+                sintomas: getChecked('sintoma'),
                 descripcion: getVal('descripcion'),
                 fechaInicio: getVal('fecha-inicio'),
-                intentos:    getVal('intentos')
+                intentos: getVal('intentos')
             },
             logistica: {
-                urgencia:       getChecked('urgencia')[0],
-                modalidad:      getChecked('modalidad')[0],
+                urgencia: getChecked('urgencia')[0],
+                modalidad: getChecked('modalidad')[0],
                 disponibilidad: getChecked('disponibilidad'),
-                backup:         getChecked('backup')[0]
+                backup: getChecked('backup')[0]
             },
             extra: {
                 observaciones: getVal('observaciones')
@@ -517,13 +517,13 @@
                 headers: { 'Content-Type': 'text/plain' },
                 body: JSON.stringify(ticket)
             })
-            .then(function (r) {
-                // Google Apps Script redirige a una página 200 tras ejecutar.
-                // No podemos leer JSON (la respuesta final es HTML del wrapper de Google).
-                // Si llegamos aquí sin error de red, el script se ejecutó.
-                finish(r.ok);
-            })
-            .catch(function () { finish(false); });
+                .then(function (r) {
+                    // Google Apps Script redirige a una página 200 tras ejecutar.
+                    // No podemos leer JSON (la respuesta final es HTML del wrapper de Google).
+                    // Si llegamos aquí sin error de red, el script se ejecutó.
+                    finish(r.ok);
+                })
+                .catch(function () { finish(false); });
         } else {
             // Modo demo: almacena en localStorage hasta que el backend esté activo.
             // Guarda sólo el ID + fecha — no vuelvas a meter aquí PII del cliente.
@@ -759,8 +759,8 @@
 
     /* ========== BIND EVENTOS ========== */
 
-    on(document.getElementById('btn-next'),   'click', function () { changeStep(1); });
-    on(document.getElementById('btn-prev'),   'click', function () { changeStep(-1); });
+    on(document.getElementById('btn-next'), 'click', function () { changeStep(1); });
+    on(document.getElementById('btn-prev'), 'click', function () { changeStep(-1); });
     on(document.getElementById('btn-submit'), 'click', submitForm);
     on(document.getElementById('resetFormBtn'), 'click', resetForm);
 
