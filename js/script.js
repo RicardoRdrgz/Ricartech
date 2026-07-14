@@ -424,7 +424,7 @@
     // desplegar el script y pegar aquí la URL de despliegue.
     // Mientras tanto, los tickets se guardan en localStorage.
     // ─────────────────────────────────────────────────────────
-    var BACKEND_URL = 'https://script.google.com/macros/s/AKfycbzop6WMdyz5SXcXiPuKHyIirrnteMAysppNw-7C5DSauud8O9qZUTBCFr0b4sMJ_Sgseg/exec'; // Ejemplo: 'https://script.google.com/macros/s/TU_ID_AQUI/exec'
+    var BACKEND_URL = 'https://script.google.com/macros/s/AKfycbxPjELQtZ2UAIxfGSlVuLVX39dpreOjhG-BDGlGN1QCaWkXeZh1YA1UKBz8nYb_zIXjYw/exec'; // Ejemplo: 'https://script.google.com/macros/s/TU_ID_AQUI/exec'
 
     function submitForm() {
         if (!validate(5)) return;
