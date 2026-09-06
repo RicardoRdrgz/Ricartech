@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /dashboard/
 
-Sitemap: https://ricardordrgz.github.io/ricartech/sitemap.xml
+Sitemap: https://ricartech.es/sitemap.xml
