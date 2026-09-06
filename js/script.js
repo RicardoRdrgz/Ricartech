@@ -419,12 +419,8 @@
     /* ========== SUBMIT FORM ========== */
 
     // ─────────────────────────────────────────────────────────
-    // BACKEND DE TICKETS — Google Sheets vía Apps Script
-    // Sigue los pasos en google-apps-script/SETUP.md para
-    // desplegar el script y pegar aquí la URL de despliegue.
-    // Mientras tanto, los tickets se guardan en localStorage.
+    // BACKEND DE TICKETS — Supabase (principal) + Google Sheets (fallback)
     // ─────────────────────────────────────────────────────────
-    var BACKEND_URL = 'https://script.google.com/macros/s/AKfycbxPjELQtZ2UAIxfGSlVuLVX39dpreOjhG-BDGlGN1QCaWkXeZh1YA1UKBz8nYb_zIXjYw/exec'; // Ejemplo: 'https://script.google.com/macros/s/TU_ID_AQUI/exec'
 
     function submitForm() {
         if (!validate(5)) return;
@@ -511,6 +507,59 @@
             }
         }
 
+        // Intentar enviar a Supabase primero
+        var db = window._ricartechSupabase;
+        if (db) {
+            var flatTicket = {
+                id: ticketId,
+                created_at: now.toISOString(),
+                estado: 'Pendiente',
+                cliente_nombre: ticket.cliente.nombre,
+                cliente_telefono: ticket.cliente.telefono,
+                cliente_email: ticket.cliente.email,
+                cliente_direccion: ticket.cliente.direccion,
+                cliente_localidad: ticket.cliente.localidad,
+                cliente_cp: ticket.cliente.cp,
+                cliente_habitual: ticket.cliente.habitual,
+                dispositivo_tipo: ticket.dispositivo.tipo,
+                dispositivo_marca: ticket.dispositivo.marca,
+                dispositivo_modelo: ticket.dispositivo.modelo,
+                dispositivo_serie: ticket.dispositivo.serie,
+                dispositivo_so: ticket.dispositivo.so,
+                dispositivo_anio: ticket.dispositivo.anio,
+                averia_servicios: ticket.averia.servicios,
+                averia_sintomas: ticket.averia.sintomas,
+                averia_descripcion: ticket.averia.descripcion,
+                averia_fecha_inicio: ticket.averia.fechaInicio,
+                averia_intentos: ticket.averia.intentos,
+                logistica_urgencia: ticket.logistica.urgencia,
+                logistica_modalidad: ticket.logistica.modalidad,
+                logistica_disponibilidad: ticket.logistica.disponibilidad,
+                logistica_backup: ticket.logistica.backup,
+                extra_observaciones: ticket.extra.observaciones
+            };
+
+            db.from('tickets').insert(flatTicket).then(function (result) {
+                if (result.error) {
+                    console.warn('[Ricartech] Supabase insert error:', result.error);
+                    submitToGoogleSheets(ticket, finish, submitBtn, originalText);
+                } else {
+                    finish(true);
+                }
+            }).catch(function (err) {
+                console.warn('[Ricartech] Supabase network error:', err);
+                submitToGoogleSheets(ticket, finish, submitBtn, originalText);
+            });
+        } else {
+            // Supabase no configurado → intentar Google Sheets
+            submitToGoogleSheets(ticket, finish, submitBtn, originalText);
+        }
+    }
+
+    // Fallback: Google Sheets vía Apps Script
+    var BACKEND_URL = 'https://script.google.com/macros/s/AKfycbxPjELQtZ2UAIxfGSlVuLVX39dpreOjhG-BDGlGN1QCaWkXeZh1YA1UKBz8nYb_zIXjYw/exec';
+
+    function submitToGoogleSheets(ticket, finish, submitBtn, originalText) {
         if (BACKEND_URL) {
             fetch(BACKEND_URL, {
                 method: 'POST',
@@ -518,21 +567,16 @@
                 body: JSON.stringify(ticket)
             })
                 .then(function (r) {
-                    // Google Apps Script redirige a una página 200 tras ejecutar.
-                    // No podemos leer JSON (la respuesta final es HTML del wrapper de Google).
-                    // Si llegamos aquí sin error de red, el script se ejecutó.
                     finish(r.ok);
                 })
                 .catch(function () { finish(false); });
         } else {
-            // Modo demo: almacena en localStorage hasta que el backend esté activo.
-            // Guarda sólo el ID + fecha — no vuelvas a meter aquí PII del cliente.
+            // Modo demo: localStorage
             try {
                 var stored = JSON.parse(localStorage.getItem('cr_tickets') || '[]');
-                stored.push({ id: ticketId, fecha: ticket.fecha, estado: ticket.estado });
+                stored.push({ id: ticket.id, fecha: ticket.fecha, estado: ticket.estado });
                 localStorage.setItem('cr_tickets', JSON.stringify(stored));
             } catch (e) {
-                // localStorage bloqueado (incógnito, sin espacio) → lo ignoramos
                 console.warn('localStorage no disponible:', e);
             }
             setTimeout(function () { finish(true); }, 800);
