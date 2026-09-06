@@ -29,10 +29,14 @@
 
     /* ========== HELPERS ========== */
 
-    // Sanitiza un string antes de insertarlo en el DOM via textContent.
-    // textContent ya escapa HTML; este helper es por simetría / claridad.
     function escapeText(value) {
-        return value == null ? '' : String(value);
+        if (value == null) return '';
+        return String(value)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
     }
 
     function getVal(id) {

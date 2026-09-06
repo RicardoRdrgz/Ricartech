@@ -23,6 +23,14 @@
 /** Nombre de la hoja donde se almacenan los tickets */
 var SHEET_NAME = "Tickets";
 
+/** Shared secret — cambiar por un valor único y guardarlo en PropertiesService */
+var API_SECRET = "RT-" + Utilities.getUuid().substring(0, 8);
+
+/** Límites de validación */
+var MAX_FIELD_LENGTH = 500;
+var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+var PHONE_RE = /^[+]?[\d\s\-()]{7,20}$/;
+
 /** Encabezados de las columnas en el orden exacto */
 var HEADERS = [
   "ID",
@@ -59,8 +67,6 @@ var HEADERS = [
 
 /**
  * Une los elementos de un array en un string separado por ", ".
- * Si el valor no es un array, lo devuelve tal cual.
- * Si es null o undefined, devuelve cadena vacía.
  */
 function flattenArray(value) {
   if (value === null || value === undefined) return "";
@@ -70,7 +76,6 @@ function flattenArray(value) {
 
 /**
  * Devuelve el valor seguro de un objeto anidado.
- * Si alguna clave intermedia no existe, devuelve "".
  */
 function safeGet(obj /*, ...keys */) {
   if (!obj || typeof obj !== "object") return "";
@@ -81,6 +86,47 @@ function safeGet(obj /*, ...keys */) {
     current = current[keys[i]];
   }
   return current !== null && current !== undefined ? String(current) : "";
+}
+
+/**
+ * Trunca un string al máximo de caracteres permitidos.
+ */
+function truncate(value, maxLen) {
+  var s = String(value || "");
+  return s.length > maxLen ? s.substring(0, maxLen) : s;
+}
+
+/**
+ * Valida los campos requeridos y formatos del ticket.
+ * Devuelve null si es válido, o un string con el mensaje de error.
+ */
+function validateTicket(data) {
+  if (!data.id || typeof data.id !== "string") return "ID inválido";
+  if (data.id.length > 100) return "ID demasiado largo";
+
+  var nombre = safeGet(data, "cliente", "nombre");
+  if (!nombre || nombre.trim().length === 0) return "Nombre del cliente requerido";
+  if (nombre.length > MAX_FIELD_LENGTH) return "Nombre demasiado largo";
+
+  var email = safeGet(data, "cliente", "email");
+  if (email && !EMAIL_RE.test(email)) return "Email inválido";
+
+  var telefono = safeGet(data, "cliente", "telefono");
+  if (telefono && !PHONE_RE.test(telefono)) return "Teléfono inválido";
+
+  return null;
+}
+
+/**
+ * EscapaHTML para prevenir XSS en datos almacenados.
+ */
+function escapeHtml(str) {
+  return String(str || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
 }
 
 /**
@@ -185,52 +231,33 @@ function jsonResponse(data, statusCode) {
  * en la hoja "Tickets" de la hoja de cálculo vinculada.
  */
 function doPost(e) {
-  // Habilitar CORS para todas las respuestas
-  var corsHeaders = {
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type"
-  };
-
   try {
-    // Verificar que hay datos en el body
     if (!e.postData || !e.postData.contents) {
-      return jsonResponse({ ok: false, error: "No se recibieron datos en el body" });
+      return jsonResponse({ ok: false, error: "No se recibieron datos" });
     }
 
-    // Parsear el JSON del body
     var data = JSON.parse(e.postData.contents);
 
-    // Validar que el ticket tenga al menos un ID
-    if (!data.id) {
-      return jsonResponse({ ok: false, error: "El campo 'id' es obligatorio" });
+    // Validar campos requeridos y formatos
+    var validationError = validateTicket(data);
+    if (validationError) {
+      return jsonResponse({ ok: false, error: validationError });
     }
 
-    // Asegurar que la hoja está lista (con encabezados)
+    // Truncar campos para evitar abuso
+    var row = parseTicket(data).map(function(val) {
+      return truncate(val, MAX_FIELD_LENGTH);
+    });
+
     var sheet = ensureSheetReady();
-
-    // Extraer los valores del ticket como fila plana
-    var row = parseTicket(data);
-
-    // Añadir la nueva fila al final de la hoja
     sheet.appendRow(row);
 
-    // Registrar en el log de ejecución de Apps Script (visible en el editor)
     Logger.log("Ticket guardado: " + data.id);
-
-    // Responder con éxito
     return jsonResponse({ ok: true, id: data.id });
 
   } catch (error) {
-    // Registrar el error para depuración
     Logger.log("Error en doPost: " + error.message);
-    Logger.log("Stack: " + error.stack);
-
-    // Responder con el error
-    return jsonResponse({
-      ok: false,
-      error: "Error interno del servidor: " + error.message
-    });
+    return jsonResponse({ ok: false, error: "Error interno del servidor" });
   }
 }
 
@@ -240,43 +267,7 @@ function doPost(e) {
  * Útil para verificar que el despliegue está funcionando.
  */
 function doGet(e) {
-  var instructions = [
-    "=== API de Tickets - Google Apps Script ===",
-    "",
-    "ESTADO: Activa",
-    "",
-    "MÉTODOS DISPONIBLES:",
-    "",
-    "  POST / (doPost)",
-    "    Recibe un ticket en formato JSON y lo guarda en la hoja 'Tickets'.",
-    "    Content-Type: application/json",
-    "",
-    "    Estructura del JSON esperado:",
-    "    {",
-    '      "id": "TKT-20260704-1234",',
-    '      "fecha": "2026-07-04T10:00:00.000Z",',
-    '      "estado": "Pendiente",',
-    '      "cliente": { "nombre": "", "telefono": "", "email": "", "direccion": "", "localidad": "", "cp": "", "habitual": "" },',
-    '      "dispositivo": { "tipo": "", "marca": "", "modelo": "", "serie": "", "so": "", "anio": "" },',
-    '      "averia": { "servicios": [], "sintomas": [], "descripcion": "", "fechaInicio": "", "intentos": "" },',
-    '      "logistica": { "urgencia": "", "modalidad": "", "disponibilidad": [], "backup": "" },',
-    '      "extra": { "observaciones": "" }',
-    "    }",
-    "",
-    "  GET / (doGet)",
-    "    Devuelve estas instrucciones de uso.",
-    "",
-    "RESPUESTAS:",
-    '  Éxito:   { "ok": true, "id": "TKT-..." }',
-    '  Error:   { "ok": false, "error": "Descripción del error" }',
-    "",
-    "HOJA DESTINO: " + SHEET_NAME,
-    "COLUMNAS: " + HEADERS.length,
-    "",
-    "Para más información consulta el archivo SETUP.md del proyecto."
-  ].join("\n");
-
   return ContentService
-    .createTextOutput(instructions)
+    .createTextOutput("Ricartech API - Activa")
     .setMimeType(ContentService.MimeType.TEXT);
 }

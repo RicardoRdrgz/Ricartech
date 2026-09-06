@@ -320,8 +320,8 @@
         // Footer con acciones
         modalFooter.innerHTML =
             '<button class="btn btn-ghost" id="modal-delete" data-id="' + escapeHtml(ticket.id) + '">Eliminar</button>' +
-            '<a href="tel:' + (ticket.cliente_telefono || '') + '" class="btn btn-ghost">Llamar</a>' +
-            '<a href="mailto:' + (ticket.cliente_email || '') + '" class="btn btn-ghost">Email</a>' +
+            '<a href="tel:' + escapeHtml(String(ticket.cliente_telefono || '')).replace(/"/g, '&quot;') + '" class="btn btn-ghost">Llamar</a>' +
+            '<a href="mailto:' + escapeHtml(String(ticket.cliente_email || '')).replace(/"/g, '&quot;') + '" class="btn btn-ghost">Email</a>' +
             '<button class="btn btn-p" id="modal-invoice" data-id="' + escapeHtml(ticket.id) + '">Generar factura</button>';
 
         // Bind events

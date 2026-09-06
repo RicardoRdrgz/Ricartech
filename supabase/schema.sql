@@ -78,43 +78,50 @@ ALTER TABLE public.tickets ENABLE ROW LEVEL SECURITY;
 
 -- ----------------------------------------------------------
 -- Políticas para ANON (formulario público de la web)
--- Solo puede INSERTar tickets nuevos
+-- Solo puede INSERTar tickets nuevos, con valores por defecto
+-- seguros para estado y campos de facturación.
 -- ----------------------------------------------------------
 CREATE POLICY "anon_insert_tickets"
   ON public.tickets
   FOR INSERT
   TO anon
-  WITH CHECK (true);
+  WITH CHECK (
+    -- Solo permitir estado Pendiente (forzar default)
+    estado = 'Pendiente'
+    -- No permitir que el anónimo setee campos de facturación
+    AND importe_total IS NULL
+    AND facturado = FALSE
+    AND numero_factura IS NULL
+  );
 
 -- ----------------------------------------------------------
--- Políticas para AUTHENTICATED (dashboard admin)
--- Puede todo: SELECT, INSERT, UPDATE, DELETE
--- Como solo existe 1 usuario (el admin), esto es seguro.
+-- Políticas para AUTHENTICATED (solo el admin)
+-- Restringido al email del administrador via JWT claim.
 -- ----------------------------------------------------------
 CREATE POLICY "auth_select_tickets"
   ON public.tickets
   FOR SELECT
   TO authenticated
-  USING (true);
+  USING (auth.jwt() ->> 'email' = 'christianrodriguezarias@gmail.com');
 
 CREATE POLICY "auth_insert_tickets"
   ON public.tickets
   FOR INSERT
   TO authenticated
-  WITH CHECK (true);
+  WITH CHECK (auth.jwt() ->> 'email' = 'christianrodriguezarias@gmail.com');
 
 CREATE POLICY "auth_update_tickets"
   ON public.tickets
   FOR UPDATE
   TO authenticated
-  USING (true)
-  WITH CHECK (true);
+  USING (auth.jwt() ->> 'email' = 'christianrodriguezarias@gmail.com')
+  WITH CHECK (auth.jwt() ->> 'email' = 'christianrodriguezarias@gmail.com');
 
 CREATE POLICY "auth_delete_tickets"
   ON public.tickets
   FOR DELETE
   TO authenticated
-  USING (true);
+  USING (auth.jwt() ->> 'email' = 'christianrodriguezarias@gmail.com');
 
 -- ============================================================
 -- TRIGGER: actualizar updated_at automáticamente
