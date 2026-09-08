@@ -232,6 +232,7 @@
     /* ========== MULTI-STEP FORM ========== */
 
     var currentStep = 1;
+    var suppressFormScrollOnInit = true;
     var TOTAL_STEPS = 5;
 
     function updateStepBar(n) {
@@ -267,7 +268,7 @@
         if (n === TOTAL_STEPS) buildReview();
 
         var formWrap = document.getElementById('form-wrap');
-        if (formWrap) formWrap.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        if (formWrap && !suppressFormScrollOnInit) formWrap.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
 
     function setError(id, hasError) {
@@ -814,6 +815,11 @@
 
     // Inicializa el formulario en el paso 1
     setStep(1);
+    suppressFormScrollOnInit = false;
+
+    // Forzar que el navegador empiece siempre arriba del todo
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    window.scrollTo(0, 0);
 
     /* ========== EMAIL OBFUSCATION (anti-scraping) ==========
        Descodifica direcciones de correo protegidas con data-attribs.
