@@ -424,10 +424,62 @@
     /* ========== SUBMIT FORM ========== */
 
     // ─────────────────────────────────────────────────────────
-    // BACKEND DE TICKETS — Supabase (principal) + Google Sheets (fallback)
+    // BACKEND DE TICKETS — Supabase (único backend)
+    // Si el registro falla, el resumen se envía por WhatsApp para
+    // que la solicitud no se pierda nunca.
     // ─────────────────────────────────────────────────────────
 
+    var WHATSAPP_NUMBER = '34607066690';
+    var waFallback = { url: null, btnHtml: '' };
+
+    function buildWhatsAppMessage(ticket) {
+        var dispositivo = [
+            ticket.dispositivo.tipo,
+            ticket.dispositivo.marca,
+            ticket.dispositivo.modelo
+        ].filter(Boolean).join(' ');
+
+        return [
+            'Hola Ricartech, quiero registrar una avería.',
+            'Ticket: ' + ticket.id,
+            '',
+            'Nombre: ' + ticket.cliente.nombre,
+            'Teléfono: ' + ticket.cliente.telefono,
+            'Localidad: ' + ticket.cliente.localidad,
+            'Dispositivo: ' + dispositivo,
+            'Servicio: ' + ticket.averia.servicios.join(', '),
+            'Urgencia: ' + ticket.logistica.urgencia,
+            '',
+            'Descripción: ' + ticket.averia.descripcion
+        ].join('\n');
+    }
+
+    function offerWhatsAppFallback(ticket, submitBtn) {
+        var url = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' +
+            encodeURIComponent(buildWhatsAppMessage(ticket));
+
+        // Copia local por si el usuario cierra la pestaña antes de enviar
+        try { localStorage.setItem('ricartech-fallback-ticket', JSON.stringify(ticket)); } catch (e) { /* ignore */ }
+
+        waFallback.url = url;
+        if (submitBtn) {
+            if (!waFallback.btnHtml) waFallback.btnHtml = submitBtn.innerHTML;
+            submitBtn.textContent = 'Enviar por WhatsApp';
+            submitBtn.disabled = false;
+        }
+
+        if (typeof window.showToast === 'function') {
+            window.showToast('No hemos podido registrar la solicitud. Envía el resumen por WhatsApp y no se perderá.', 'error', 9000);
+        } else {
+            window.alert('No hemos podido registrar la solicitud. Escríbenos por WhatsApp al 607 066 690.');
+        }
+    }
+
     function submitForm() {
+        if (waFallback.url) {
+            window.open(waFallback.url, '_blank', 'noopener');
+            return;
+        }
         if (!validate(5)) return;
 
         var now = new Date();
@@ -480,7 +532,6 @@
         };
 
         var submitBtn = document.getElementById('btn-submit');
-        var originalText = submitBtn ? submitBtn.innerHTML : '';
         if (submitBtn) {
             submitBtn.textContent = 'Enviando…';
             submitBtn.disabled = true;
@@ -504,15 +555,11 @@
                 var successScreen = document.getElementById('success-screen');
                 if (successScreen) successScreen.classList.add('show');
             } else {
-                window.alert('Error al enviar. Inténtalo de nuevo.');
-                if (submitBtn) {
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
-                }
+                offerWhatsAppFallback(ticket, submitBtn);
             }
         }
 
-        // Intentar enviar a Supabase primero
+        // Enviar a Supabase
         var db = window._ricartechSupabase;
         if (db) {
             var flatTicket = {
@@ -547,44 +594,17 @@
             db.from('tickets').insert(flatTicket).then(function (result) {
                 if (result.error) {
                     console.warn('[Ricartech] Supabase insert error:', result.error);
-                    submitToGoogleSheets(ticket, finish, submitBtn, originalText);
+                    offerWhatsAppFallback(ticket, submitBtn);
                 } else {
                     finish(true);
                 }
             }).catch(function (err) {
                 console.warn('[Ricartech] Supabase network error:', err);
-                submitToGoogleSheets(ticket, finish, submitBtn, originalText);
+                offerWhatsAppFallback(ticket, submitBtn);
             });
         } else {
-            // Supabase no configurado → intentar Google Sheets
-            submitToGoogleSheets(ticket, finish, submitBtn, originalText);
-        }
-    }
-
-    // Fallback: Google Sheets vía Apps Script
-    var BACKEND_URL = 'https://script.google.com/macros/s/AKfycbxPjELQtZ2UAIxfGSlVuLVX39dpreOjhG-BDGlGN1QCaWkXeZh1YA1UKBz8nYb_zIXjYw/exec';
-
-    function submitToGoogleSheets(ticket, finish, submitBtn, originalText) {
-        if (BACKEND_URL) {
-            fetch(BACKEND_URL, {
-                method: 'POST',
-                headers: { 'Content-Type': 'text/plain' },
-                body: JSON.stringify(ticket)
-            })
-                .then(function (r) {
-                    finish(r.ok);
-                })
-                .catch(function () { finish(false); });
-        } else {
-            // Modo demo: localStorage
-            try {
-                var stored = JSON.parse(localStorage.getItem('cr_tickets') || '[]');
-                stored.push({ id: ticket.id, fecha: ticket.fecha, estado: ticket.estado });
-                localStorage.setItem('cr_tickets', JSON.stringify(stored));
-            } catch (e) {
-                console.warn('localStorage no disponible:', e);
-            }
-            setTimeout(function () { finish(true); }, 800);
+            // Supabase no configurado o no disponible
+            offerWhatsAppFallback(ticket, submitBtn);
         }
     }
 
@@ -692,16 +712,21 @@
         on(formRadios[ri], 'change', saveDraft);
     }
 
-    // Clear draft on successful submit — add to finish function
-    var _origFinish = typeof finish === 'function' ? null : null;
-    // We patch into the submit flow by hooking localStorage clear into the existing demo flow
-    // The BACKEND_URL null branch calls finish(true) — we wrap localStorage clear there
-
     // Clear draft on reset
     var _origReset = resetForm;
     resetForm = function () {
         try { localStorage.removeItem(FORM_DRAFT_KEY); } catch (e) { /* ignore */ }
         _origReset();
+        // Restaurar el botón si estaba en modo "Enviar por WhatsApp"
+        if (waFallback.url) {
+            waFallback.url = null;
+            var btn = document.getElementById('btn-submit');
+            if (btn && waFallback.btnHtml) {
+                btn.innerHTML = waFallback.btnHtml;
+                btn.disabled = false;
+            }
+            waFallback.btnHtml = '';
+        }
     };
 
     // Load draft on page load

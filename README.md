@@ -10,7 +10,7 @@
 [![HTML5](https://img.shields.io/badge/HTML5-e34f26?logo=html5&logoColor=white)](#)
 [![CSS3](https://img.shields.io/badge/CSS3-1572b6?logo=css3&logoColor=white)](#)
 [![JavaScript](https://img.shields.io/badge/JavaScript-f7df1e?logo=javascript&logoColor=black)](#)
-[![Google Sheets](https://img.shields.io/badge/Backend-Google%20Sheets-34a853?logo=google-sheets&logoColor=white)](#)
+[![Supabase](https://img.shields.io/badge/Backend-Supabase-3ecf8e?logo=supabase&logoColor=white)](#)
 
 </div>
 
@@ -34,7 +34,7 @@ Optimizada para **SEO local**, **accesibilidad** y **rendimiento**. Sin dependen
 | 💰 **Packs** | Paquetes combinados con descuento |
 | ⚙️ **Proceso** | 4 pasos: diagnóstico → presupuesto → reparación → entrega |
 | 🧮 **Calculadora** | Presupuesto interactivo para servicios individuales y consolas |
-| 📋 **Registro** | Formulario multi-paso (5 pasos) con envío a Google Sheets |
+| 📋 **Registro** | Formulario multi-paso con envío a Supabase |
 | 📞 **Contacto** | Email ofuscado, WhatsApp, LinkedIn, ubicación |
 | ❓ **FAQ** | Preguntas frecuentes con buscador en tiempo real |
 
@@ -52,9 +52,9 @@ ricartech/
 ├── assets/
 │   ├── img/                   # Imágenes de servicio (PNG) y favicon
 │   └── svg/                   # Iconos de contacto
-├── google-apps-script/
-│   ├── Code.gs                # Apps Script para tickets
-│   └── SETUP.md               # Guía de configuración
+├── dashboard/                  # Panel de administración (Supabase Auth)
+├── supabase/
+│   └── schema.sql              # Tabla tickets + políticas RLS
 ├── robots.txt                  # Directivas para crawlers
 ├── sitemap.xml                 # Sitemap para Google
 └── README.md
@@ -64,18 +64,15 @@ ricartech/
 
 ## Backend de tickets
 
-Los formularios de registro de avería se envían automáticamente a una **hoja de Google Sheets** mediante Google Apps Script. No requiere servidor propio.
+Los formularios de registro de avería se envían a **Supabase** (Postgres + Auth + RLS). El panel de administración vive en `/dashboard/` y se autentica con Supabase Auth.
 
-### Configuración
+El esquema y las políticas RLS están en [`supabase/schema.sql`](supabase/schema.sql). La clave pública (`anon`) solo permite insertar tickets con estado `Pendiente`; la lectura, edición y borrado quedan restringidos al email del administrador.
 
-Instrucciones completas en [`google-apps-script/SETUP.md`](google-apps-script/SETUP.md).
+### Resiliencia
 
-Resumen rápido:
+Si el registro falla (red, Supabase caído o límite alcanzado), el formulario ofrece **enviar el resumen por WhatsApp** con todos los datos ya rellenados, además de guardar una copia local. Así no se pierde ninguna solicitud.
 
-1. Crear una hoja de Google Sheets llamada **Tickets**
-2. Abrir **Extensiones → Apps Script** y pegar el código de `Code.gs`
-3. Desplegar como web app (acceso: cualquiera)
-4. Copiar la URL en la variable `BACKEND_URL` de `js/script.js`
+> El plan gratuito de Supabase pausa proyectos tras 7 días de inactividad. Mantén activo el proyecto o revisa el panel periódicamente.
 
 ---
 
