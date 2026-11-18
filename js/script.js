@@ -646,8 +646,9 @@
         svcImages[img].setAttribute('loading', 'lazy');
         svcImages[img].addEventListener('error', function () {
             this.style.display = 'none';
-            if (this.parentElement) {
-                this.parentElement.style.background =
+            var box = this.closest('.svc-ico');
+            if (box) {
+                box.style.background =
                     'linear-gradient(135deg, var(--surface-2) 0%, var(--surface) 100%)';
             }
         });
